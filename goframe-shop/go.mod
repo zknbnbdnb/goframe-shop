@@ -1,4 +1,4 @@
-module demo
+module goframe-shop
 
 go 1.15
 

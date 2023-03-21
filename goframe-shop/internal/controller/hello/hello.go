@@ -5,7 +5,7 @@ import (
 
 	"github.com/gogf/gf/v2/frame/g"
 
-	v1 "demo/api/hello/v1"
+	v1 "goframe-shop/api/hello/v1"
 )
 
 type Controller struct{}

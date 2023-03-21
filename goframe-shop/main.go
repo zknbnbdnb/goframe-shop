@@ -1,11 +1,11 @@
 package main
 
 import (
-	_ "demo/internal/packed"
+	_ "goframe-shop/internal/packed"
 
 	"github.com/gogf/gf/v2/os/gctx"
 
-	"demo/internal/cmd"
+	"goframe-shop/internal/cmd"
 )
 
 func main() {
