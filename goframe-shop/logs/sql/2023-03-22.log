@@ -28,3 +28,10 @@ Stack:
 2023-03-22 14:56:19.396 [DEBU] {234f973369ab4e179337e45bd45a09f0} [  2 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
 2023-03-22 14:56:19.397 [DEBU] {234f973369ab4e179337e45bd45a09f0} [  1 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `rotation_info` SET `deleted_at`='2023-03-22 14:56:19' WHERE (`id`=10) AND `deleted_at` IS NULL
 2023-03-22 14:56:19.399 [DEBU] {234f973369ab4e179337e45bd45a09f0} [  2 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-03-22 15:50:11.946 [DEBU] {f620b2d659ae4e1712208804ea588b17} [ 11 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-03-22 15:50:11.948 [DEBU] {f620b2d659ae4e1712208804ea588b17} [  1 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-22 15:50:11.950 [DEBU] {f620b2d659ae4e1712208804ea588b17} [  1 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `rotation_info` SET `updated_at`='2023-03-22 15:50:11',`pic_url`='djaskldjkl',`link`='3849127',`sort`=2 WHERE (`id`=10) AND `deleted_at` IS NULL
+2023-03-22 15:50:11.950 [DEBU] {f620b2d659ae4e1712208804ea588b17} [  0 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-03-22 15:50:52.626 [DEBU] {a59f165063ae4e17132088048e059183} [  2 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-03-22 15:50:52.627 [DEBU] {a59f165063ae4e17132088048e059183} [  1 ms] [default] [shop] [rows:1  ] [txid:2] UPDATE `rotation_info` SET `updated_at`='2023-03-22 15:50:52',`pic_url`='djaskldjkl',`link`='3849127',`sort`=2 WHERE (`id`=12) AND `deleted_at` IS NULL
+2023-03-22 15:50:52.629 [DEBU] {a59f165063ae4e17132088048e059183} [  2 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
