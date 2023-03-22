@@ -3,7 +3,6 @@ package controller
 import (
 	"context"
 	"goframe-shop/api/backend"
-
 	"goframe-shop/internal/model"
 	"goframe-shop/internal/service"
 )
@@ -25,4 +24,9 @@ func (a *cRotation) Create(ctx context.Context, req *backend.RotationReq) (res *
 		return nil, err
 	}
 	return &backend.RotationRes{RotationId: out.RotationId}, nil
+}
+
+func (a *cRotation) Delete(ctx context.Context, req *backend.RotationDeleteReq) (res *backend.RotationDeleteRes, err error) {
+	err = service.Rotation().Delete(ctx, req.Id)
+	return
 }

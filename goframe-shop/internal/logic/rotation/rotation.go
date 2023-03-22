@@ -2,7 +2,9 @@ package rotation
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/encoding/ghtml"
+	"github.com/gogf/gf/v2/frame/g"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
 	"goframe-shop/internal/service"
@@ -27,5 +29,16 @@ func (s *sRotation) Create(ctx context.Context, in model.RotationCreateInput) (o
 	if err != nil {
 		return out, err
 	}
-	return model.RotationCreateOutput{RotationId: uint(lastInsertID)}, err
+	return model.RotationCreateOutput{RotationId: int(lastInsertID)}, err
+}
+
+// Delete 删除
+func (s *sRotation) Delete(ctx context.Context, id uint) error {
+	return dao.RotationInfo.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
+		// 删除内容
+		_, err := dao.RotationInfo.Ctx(ctx).Where(g.Map{
+			dao.RotationInfo.Columns().Id: id,
+		}).Delete() // 这里是软删除，如果要实现硬删除可以在Delete()前面加上Unscoped()
+		return err
+	})
 }

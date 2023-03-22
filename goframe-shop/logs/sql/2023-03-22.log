@@ -1,0 +1,30 @@
+2023-03-22 13:54:32.621 [DEBU] {2dfb48270aa84e17622b4b4a2a28f67f} [  2 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-22 13:54:32.626 [ERRO] {2dfb48270aa84e17622b4b4a2a28f67f} [  3 ms] [default] [shop] [rows:0  ] INSERT INTO `rotation_info`(`pic_url`,`updated_at`,`link`,`sort`,`created_at`) VALUES('zheshiyigetupiandizhi','2023-03-22 13:54:32','zheshiyigetiaozhuandizhi',999,'2023-03-22 13:54:32') 
+Error: Error 1264: Out of range value for column 'sort' at row 1
+Stack:
+1.  goframe-shop/internal/logic/rotation.(*sRotation).Create
+    /home/zk/Go_project/goframe-shop/internal/logic/rotation/rotation.go:26
+2.  goframe-shop/internal/controller.(*cRotation).Create
+    /home/zk/Go_project/goframe-shop/internal/controller/rotation.go:16
+
+2023-03-22 13:55:01.692 [DEBU] {c3e049eb10a84e17632b4b4a790142be} [ 16 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`pic_url`,`sort`,`updated_at`,`link`,`created_at`) VALUES('zheshiyigetupiandizhi',9,'2023-03-22 13:55:01','zheshiyigetiaozhuandizhi','2023-03-22 13:55:01') 
+2023-03-22 14:43:21.129 [DEBU] {98b17bffb3aa4e176e0a9e2a15aa566a} [ 11 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-03-22 14:43:21.132 [DEBU] {98b17bffb3aa4e176e0a9e2a15aa566a} [  2 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-22 14:43:21.133 [DEBU] {98b17bffb3aa4e176e0a9e2a15aa566a} [  1 ms] [default] [shop] [rows:1  ] [txid:1] DELETE FROM `rotation_info` WHERE `id`=8
+2023-03-22 14:43:21.135 [DEBU] {98b17bffb3aa4e176e0a9e2a15aa566a} [  2 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-03-22 14:43:58.302 [DEBU] {f9a205a7bcaa4e176f0a9e2a49a59b45} [ 14 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`pic_url`,`created_at`,`link`,`updated_at`,`sort`) VALUES('1','2023-03-22 14:43:58','2','2023-03-22 14:43:58',33) 
+2023-03-22 14:44:13.066 [DEBU] {117a1f17c0aa4e17700a9e2ac27b5b51} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`sort`,`updated_at`,`pic_url`,`link`,`created_at`) VALUES(33,'2023-03-22 14:44:13','1','2','2023-03-22 14:44:13') 
+2023-03-22 14:44:13.932 [DEBU] {0899c44ac0aa4e17710a9e2a455b8bc9} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`pic_url`,`updated_at`,`link`,`sort`,`created_at`) VALUES('1','2023-03-22 14:44:13','2',33,'2023-03-22 14:44:13') 
+2023-03-22 14:44:14.768 [DEBU] {f5c6937cc0aa4e17720a9e2a3ea54cfd} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`created_at`,`pic_url`,`updated_at`,`link`,`sort`) VALUES('2023-03-22 14:44:14','1','2023-03-22 14:44:14','2',33) 
+2023-03-22 14:44:15.464 [DEBU] {e74213a6c0aa4e17730a9e2afd3ba68c} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`created_at`,`sort`,`pic_url`,`link`,`updated_at`) VALUES('2023-03-22 14:44:15',33,'1','2','2023-03-22 14:44:15') 
+2023-03-22 14:44:16.185 [DEBU] {5baf0cd1c0aa4e17740a9e2a1676abe0} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`updated_at`,`link`,`sort`,`created_at`,`pic_url`) VALUES('2023-03-22 14:44:16','2',33,'2023-03-22 14:44:16','1') 
+2023-03-22 14:44:51.702 [DEBU] {369e0b16c9aa4e17750a9e2a2a3fe1cb} [ 11 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-03-22 14:44:51.703 [DEBU] {369e0b16c9aa4e17750a9e2a2a3fe1cb} [  1 ms] [default] [shop] [rows:0  ] [txid:2] DELETE FROM `rotation_info` WHERE `id`=8
+2023-03-22 14:44:51.704 [DEBU] {369e0b16c9aa4e17750a9e2a2a3fe1cb} [  1 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2023-03-22 14:45:21.295 [DEBU] {789a9dfacfaa4e17760a9e2af0bf127e} [  0 ms] [default] [shop] [rows:0  ] [txid:3] BEGIN
+2023-03-22 14:45:21.296 [DEBU] {789a9dfacfaa4e17760a9e2af0bf127e} [  0 ms] [default] [shop] [rows:1  ] [txid:3] DELETE FROM `rotation_info` WHERE `id`=9
+2023-03-22 14:45:21.308 [DEBU] {789a9dfacfaa4e17760a9e2af0bf127e} [ 12 ms] [default] [shop] [rows:0  ] [txid:3] COMMIT
+2023-03-22 14:56:19.393 [DEBU] {234f973369ab4e179337e45bd45a09f0} [ 11 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-03-22 14:56:19.396 [DEBU] {234f973369ab4e179337e45bd45a09f0} [  2 ms] [default] [shop] [rows:7  ] [txid:1] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-22 14:56:19.397 [DEBU] {234f973369ab4e179337e45bd45a09f0} [  1 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `rotation_info` SET `deleted_at`='2023-03-22 14:56:19' WHERE (`id`=10) AND `deleted_at` IS NULL
+2023-03-22 14:56:19.399 [DEBU] {234f973369ab4e179337e45bd45a09f0} [  2 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT

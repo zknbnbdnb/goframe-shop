@@ -11,6 +11,11 @@ type RotationReq struct {
 	Sort   int    `json:"sort"       dc:"排序"` // 当非必需时，可以不写v:"required#排序不能为空"
 }
 type RotationRes struct {
-	//g.Meta `mime:"text/html" example:"string"`
 	RotationId int `json:"rotationId"`
 }
+
+type RotationDeleteReq struct {
+	g.Meta `path:"/backend/rotation/delete" method:"delete" tags:"轮播图" summary:"删除轮播图接口"`
+	Id     uint `v:"min:1#请选择需要删除的轮播图" dc:"轮播图id"`
+}
+type RotationDeleteRes struct{}
