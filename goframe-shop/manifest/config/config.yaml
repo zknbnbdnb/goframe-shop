@@ -1,3 +1,4 @@
+# HTTP Server.
 server:
   address:     ":8000"
   openapiPath: "/api.json"
@@ -7,5 +8,15 @@ logger:
   level : "all"
   stdout: true
 
+# 数据库连接配置
+database:
+  logger:
+    path:    "logs/sql"
+    level:   "all"
+    stdout:  true
+    ctxKeys: ["RequestId"]
 
+  default: # todo 修改为自己的数据库配置
+    link:   "mysql:root:@tcp(127.0.0.1:3306)/shop"
+    debug:  true
 

@@ -2,12 +2,11 @@ package cmd
 
 import (
 	"context"
+	"goframe-shop/internal/controller"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
-
-	"goframe-shop/internal/controller/hello"
 )
 
 var (
@@ -20,7 +19,7 @@ var (
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
-					hello.New(),
+					controller.Rotation, // 轮播图
 				)
 			})
 			s.Run()
