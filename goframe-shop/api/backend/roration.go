@@ -31,3 +31,16 @@ type RotationUpdateReq struct {
 	Sort   int    `json:"sort"       dc:"排序"` // 当非必需时，可以不写v:"required#排序不能为空"
 }
 type RotationUpdateRes struct{}
+
+type RotationGetListCommonReq struct {
+	g.Meta              `path:"/backend/rotation/list" method:"get" tags:"轮播图" summary:"轮播图列表接口"`
+	Sort                int `json:"sort"   in:"query" dc:"排序类型"`
+	CommonPaginationReq     // 翻页配置
+}
+type RotationGetListCommonRes struct {
+	// todo 以为要做前后端分离，使用不返回html
+	List  interface{} `json:"list" description:"列表"`
+	Page  int         `json:"page" description:"分页码"`
+	Size  int         `json:"size" description:"分页数量"`
+	Total int         `json:"total" description:"数据总数"`
+}

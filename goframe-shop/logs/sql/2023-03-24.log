@@ -1,0 +1,23 @@
+2023-03-24 14:09:43.799 [DEBU] {a017686d07464f170f94d458c122a35d} [ 52 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-24 14:09:43.800 [DEBU] {a017686d07464f170f94d458c122a35d} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-24 14:09:43.801 [DEBU] {a017686d07464f170f94d458c122a35d} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2023-03-24 14:09:43.802 [DEBU] {a017686d07464f170f94d458c122a35d} [  1 ms] [default] [shop] [rows:5  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-24 14:13:04.271 [DEBU] {041a011d36464f17f5abfe4afa4efdd0} [ 10 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-24 14:13:04.272 [DEBU] {041a011d36464f17f5abfe4afa4efdd0} [  1 ms] [default] [shop] [rows:5  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-24 14:13:04.272 [DEBU] {041a011d36464f17f5abfe4afa4efdd0} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2023-03-24 14:13:04.274 [ERRO] {041a011d36464f17f5abfe4afa4efdd0} [  0 ms] [default] [shop] [rows:0  ] SELECT * FROM `rotation_info` WHERE (Rotation) AND `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+Error: Error 1054: Unknown column 'Rotation' in 'where clause'
+Stack:
+1.  goframe-shop/internal/logic/rotation.(*sRotation).GetList
+    /home/zk/Go_project/goframe-shop/internal/logic/rotation/rotation.go:93
+2.  goframe-shop/internal/controller.(*cRotation).List
+    /home/zk/Go_project/goframe-shop/internal/controller/rotation.go:47
+
+2023-03-24 14:14:05.148 [DEBU] {c17cb64944464f17fbe75f6af357426c} [  7 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-24 14:14:05.149 [DEBU] {c17cb64944464f17fbe75f6af357426c} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-24 14:14:05.150 [DEBU] {c17cb64944464f17fbe75f6af357426c} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2023-03-24 14:14:05.150 [DEBU] {c17cb64944464f17fbe75f6af357426c} [  0 ms] [default] [shop] [rows:5  ] SELECT * FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-24 14:16:15.236 [DEBU] {a48c559362464f176c195e067f6992bb} [ 10 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-24 14:16:15.237 [DEBU] {a48c559362464f176c195e067f6992bb} [  1 ms] [default] [shop] [rows:5  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-24 14:16:15.238 [DEBU] {a48c559362464f176c195e067f6992bb} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2023-03-24 14:16:15.238 [DEBU] {a48c559362464f176c195e067f6992bb} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
