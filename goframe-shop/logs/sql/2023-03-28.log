@@ -1,0 +1,17 @@
+2023-03-28 21:17:00.169 [DEBU] {1ee504a2aa975017fa0201654090550e} [ 40 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-03-28 21:17:00.184 [DEBU] {1ee504a2aa975017fa0201654090550e} [ 14 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`sort`,`pic_url`,`created_at`,`link`,`updated_at`) VALUES(0,'github.com','2023-03-28 21:17:00','baidu.com','2023-03-28 21:17:00') 
+2023-03-28 21:17:45.372 [DEBU] {4a15e629b5975017fb020165f8dbd954} [ 15 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `position_info`
+2023-03-28 21:17:45.375 [DEBU] {4a15e629b5975017fb020165f8dbd954} [  3 ms] [default] [shop] [rows:1  ] INSERT INTO `position_info`(`link`,`updated_at`,`goods_id`,`goods_name`,`pic_url`,`created_at`,`sort`) VALUES('baidu.com','2023-03-28 21:17:45',23,'maotai','github.com','2023-03-28 21:17:45',0) 
+2023-03-28 21:20:09.300 [DEBU] {b90fdbacd6975017fc020165dcafd482} [ 12 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-03-28 21:20:09.301 [DEBU] {b90fdbacd6975017fc020165dcafd482} [  0 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `position_info` SET `goods_id`=12,`goods_name`='kfc',`updated_at`='2023-03-28 21:20:09',`pic_url`='gg.com',`link`='bb.com',`sort`=0 WHERE (`id`=2) AND `deleted_at` IS NULL
+2023-03-28 21:20:09.302 [DEBU] {b90fdbacd6975017fc020165dcafd482} [  1 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-03-28 21:20:26.317 [DEBU] {5165dda3da975017fd02016528c7f80a} [  0 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-03-28 21:20:26.320 [DEBU] {5165dda3da975017fd02016528c7f80a} [  2 ms] [default] [shop] [rows:1  ] [txid:2] UPDATE `position_info` SET `updated_at`='2023-03-28 21:20:26',`pic_url`='gg.com',`link`='bb.com',`sort`=0,`goods_id`=12,`goods_name`='kfc' WHERE (`id`=3) AND `deleted_at` IS NULL
+2023-03-28 21:20:26.322 [DEBU] {5165dda3da975017fd02016528c7f80a} [  2 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2023-03-28 21:20:48.986 [DEBU] {8b5d2aeadf975017fe0201653072fbec} [ 15 ms] [default] [shop] [rows:1  ] INSERT INTO `position_info`(`pic_url`,`goods_name`,`updated_at`,`link`,`sort`,`goods_id`,`created_at`) VALUES('github.com','maotai','2023-03-28 21:20:48','baidu.com',0,23,'2023-03-28 21:20:48') 
+2023-03-28 21:21:54.408 [DEBU] {839cbc25ef975017ff02016536be17aa} [ 13 ms] [default] [shop] [rows:2  ] SELECT `id`,`pic_url`,`goods_name`,`link`,`sort`,`goods_id`,`created_at`,`updated_at`,`deleted_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-28 21:21:54.409 [DEBU] {839cbc25ef975017ff02016536be17aa} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `position_info` WHERE `deleted_at` IS NULL
+2023-03-28 21:21:54.409 [DEBU] {839cbc25ef975017ff02016536be17aa} [  0 ms] [default] [shop] [rows:2  ] SELECT `id`,`pic_url`,`link`,`goods_name`,`goods_id`,`sort`,`created_at`,`updated_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-03-28 21:22:24.783 [DEBU] {24114538f6975017000301651176a720} [ 12 ms] [default] [shop] [rows:0  ] [txid:3] BEGIN
+2023-03-28 21:22:24.784 [DEBU] {24114538f6975017000301651176a720} [  1 ms] [default] [shop] [rows:1  ] [txid:3] UPDATE `position_info` SET `deleted_at`='2023-03-28 21:22:24' WHERE (`id`=3) AND `deleted_at` IS NULL
+2023-03-28 21:22:24.787 [DEBU] {24114538f6975017000301651176a720} [  3 ms] [default] [shop] [rows:0  ] [txid:3] COMMIT

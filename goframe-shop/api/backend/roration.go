@@ -4,6 +4,8 @@ import (
 	"github.com/gogf/gf/v2/frame/g"
 )
 
+// 表结构在rotation_info中定义
+
 // Create 创建
 type RotationReq struct {
 	g.Meta `path:"/backend/rotation/add" tags:"Rotation" method:"post" summary:"这是个注释"`
