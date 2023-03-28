@@ -32,7 +32,9 @@ type RotationUpdateReq struct {
 	Link   string `json:"link"       v:"required#跳转链接不能为空" dc:"跳转链接"`
 	Sort   int    `json:"sort"       dc:"排序"` // 当非必需时，可以不写v:"required#排序不能为空"
 }
-type RotationUpdateRes struct{}
+type RotationUpdateRes struct {
+	Id uint `json:"id"`
+}
 
 type RotationGetListCommonReq struct {
 	g.Meta              `path:"/backend/rotation/list" method:"get" tags:"轮播图" summary:"轮播图列表接口"`

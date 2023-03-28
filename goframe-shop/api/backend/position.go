@@ -25,7 +25,9 @@ type PositionDeleteReq struct {
 	g.Meta `path:"/backend/position/delete" method:"delete" tags:"手工位图" summary:"删除手工位图接口"`
 	Id     uint `v:"min:1#请选择需要删除的手工位图" dc:"手工位图id"`
 }
-type PositionDeleteRes struct{}
+type PositionDeleteRes struct {
+	Id uint `json:"id"`
+}
 
 // PositionUpdateReq Update 更新
 type PositionUpdateReq struct {
