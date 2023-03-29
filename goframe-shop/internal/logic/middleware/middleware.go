@@ -84,6 +84,16 @@ func (s *sMiddleware) Ctx(r *ghttp.Request) {
 	r.Middleware.Next()
 }
 
+func (s *sMiddleware) CORS(r *ghttp.Request) {
+	r.Response.CORSDefault()
+	r.Middleware.Next()
+}
+
+func (s *sMiddleware) Auth(r *ghttp.Request) {
+	service.Auth().MiddlewareFunc()(r)
+	r.Middleware.Next()
+}
+
 // 前台系统权限控制，用户必须登录才能访问
 //func (s *sMiddleware) Auth(r *ghttp.Request) {
 //	user := service.Session().GetUser(r.Context())

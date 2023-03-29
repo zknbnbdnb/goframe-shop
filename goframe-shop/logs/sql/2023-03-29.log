@@ -44,3 +44,7 @@ Stack:
 2023-03-29 12:12:09.945 [DEBU] {5a6658ec83c85017c7313858ba0f30f5} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin` FROM `admin_info` WHERE `name`='zknbnbdnb' LIMIT 1
 2023-03-29 12:12:18.942 [DEBU] {9142cd0486c85017c8313858bc4b6aa8} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin` FROM `admin_info` WHERE `name`='zknbnbdnb' LIMIT 1
 2023-03-29 12:12:22.522 [DEBU] {334c37da86c85017c93138586e59ebbc} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin` FROM `admin_info` WHERE `name`='zknbnbdnb' LIMIT 1
+2023-03-29 22:00:03.314 [DEBU] {814c46a498e85017ff1090309cdb40e3} [ 16 ms] [default] [shop] [rows:8  ] SHOW FULL COLUMNS FROM `admin_info`
+2023-03-29 22:00:03.317 [DEBU] {814c46a498e85017ff1090309cdb40e3} [  3 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin` FROM `admin_info` WHERE `name`='zknbnbdnb' LIMIT 1
+2023-03-29 22:06:24.710 [DEBU] {6d191771f1e85017b63bb67d7fdafe03} [ 19 ms] [default] [shop] [rows:8  ] SHOW FULL COLUMNS FROM `admin_info`
+2023-03-29 22:06:24.712 [DEBU] {6d191771f1e85017b63bb67d7fdafe03} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`password`,`role_ids`,`created_at`,`updated_at`,`user_salt`,`is_admin` FROM `admin_info` WHERE `name`='zknbnbdnb' LIMIT 1
