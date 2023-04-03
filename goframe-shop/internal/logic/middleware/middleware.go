@@ -93,25 +93,3 @@ func (s *sMiddleware) Auth(r *ghttp.Request) {
 	service.Auth().MiddlewareFunc()(r)
 	r.Middleware.Next()
 }
-
-// 前台系统权限控制，用户必须登录才能访问
-//func (s *sMiddleware) Auth(r *ghttp.Request) {
-//	user := service.Session().GetUser(r.Context())
-//	if user.Id == 0 {
-//		_ = service.Session().SetNotice(r.Context(), &model.SessionNotice{
-//			Type:    consts.SessionNoticeTypeWarn,
-//			Content: "未登录或会话已过期，请您登录后再继续",
-//		})
-//		// 只有GET请求才支持保存当前URL，以便后续登录后再跳转回来。
-//		if r.Method == "GET" {
-//			_ = service.Session().SetLoginReferer(r.Context(), r.GetUrl())
-//		}
-//		// 根据当前请求方式执行不同的返回数据结构
-//		if r.IsAjaxRequest() {
-//			response.JsonRedirectExit(r, 1, "", s.LoginUrl)
-//		} else {
-//			r.Response.RedirectTo(s.LoginUrl)
-//		}
-//	}
-//	r.Middleware.Next()
-//}
