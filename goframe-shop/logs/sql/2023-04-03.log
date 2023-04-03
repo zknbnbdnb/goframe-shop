@@ -65,3 +65,37 @@ Stack:
 2023-04-03 21:37:10.425 [DEBU] {124734d53f7052173db56d7e5376ff6a} [  0 ms] [default] [shop] [rows:3  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,20
 2023-04-03 21:37:10.436 [DEBU] {124734d53f7052173db56d7e5376ff6a} [ 11 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `role_info` WHERE `deleted_at` IS NULL
 2023-04-03 21:37:10.437 [DEBU] {124734d53f7052173db56d7e5376ff6a} [  1 ms] [default] [shop] [rows:3  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-03 23:26:03.059 [DEBU] {e921b9d13076521790f9d94b7008b850} [ 46 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2023-04-03 23:26:03.068 [DEBU] {e921b9d13076521790f9d94b7008b850} [  8 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`updated_at`,`role_id`,`permission_id`,`created_at`) VALUES('2023-04-03 23:26:03',1,1,'2023-04-03 23:26:03') 
+2023-04-03 23:26:47.537 [DEBU] {8fcea72e3b76521791f9d94b94a20250} [ 17 ms] [default] [shop] [rows:1  ] DELETE FROM `role_permission_info` WHERE `role_id`=1 AND `permission_id`=1
+2023-04-03 23:27:05.022 [DEBU] {c78f1c413f76521792f9d94bb9882c54} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`created_at`,`updated_at`,`role_id`,`permission_id`) VALUES('2023-04-03 23:27:05','2023-04-03 23:27:05',1,1) 
+2023-04-03 23:27:07.319 [ERRO] {369fffc93f76521793f9d94b4348afd7} [ 12 ms] [default] [shop] [rows:0  ] INSERT INTO `role_permission_info`(`updated_at`,`role_id`,`permission_id`,`created_at`) VALUES('2023-04-03 23:27:07',1,1,'2023-04-03 23:27:07') 
+Error: Error 1062: Duplicate entry '1-1' for key 'role_permission_info.unique_index'
+Stack:
+1.  goframe-shop/internal/logic/role.(*sRole).AddPermission
+    /home/zk/Go_project/goframe-shop/internal/logic/role/role.go:34
+2.  goframe-shop/internal/controller.(*cRole).AddPermission
+    /home/zk/Go_project/goframe-shop/internal/controller/role.go:30
+3.  goframe-shop/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:29
+4.  goframe-shop/internal/logic/middleware.(*sMiddleware).Ctx
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:84
+5.  goframe-shop/internal/logic/middleware.(*sMiddleware).CORS
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:89
+
+2023-04-03 23:27:07.999 [ERRO] {495830f33f76521794f9d94b08d36daa} [  2 ms] [default] [shop] [rows:0  ] INSERT INTO `role_permission_info`(`role_id`,`permission_id`,`created_at`,`updated_at`) VALUES(1,1,'2023-04-03 23:27:07','2023-04-03 23:27:07') 
+Error: Error 1062: Duplicate entry '1-1' for key 'role_permission_info.unique_index'
+Stack:
+1.  goframe-shop/internal/logic/role.(*sRole).AddPermission
+    /home/zk/Go_project/goframe-shop/internal/logic/role/role.go:34
+2.  goframe-shop/internal/controller.(*cRole).AddPermission
+    /home/zk/Go_project/goframe-shop/internal/controller/role.go:30
+3.  goframe-shop/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:29
+4.  goframe-shop/internal/logic/middleware.(*sMiddleware).Ctx
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:84
+5.  goframe-shop/internal/logic/middleware.(*sMiddleware).CORS
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:89
+
+2023-04-03 23:27:20.474 [DEBU] {e313edd94276521796f9d94b107805fc} [ 15 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`updated_at`,`role_id`,`permission_id`,`created_at`) VALUES('2023-04-03 23:27:20',3,3,'2023-04-03 23:27:20') 
+2023-04-03 23:27:35.308 [DEBU] {dfa4434e4676521797f9d94b4f35ea86} [ 13 ms] [default] [shop] [rows:1  ] DELETE FROM `role_permission_info` WHERE `role_id`=1 AND `permission_id`=1
