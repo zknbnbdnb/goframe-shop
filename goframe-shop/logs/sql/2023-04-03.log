@@ -34,3 +34,8 @@
 2023-04-03 13:14:02.285 [DEBU] {b1f6d81bcb545217aafa354097f9a536} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`role_id`,`permission_id`,`created_at`,`updated_at` FROM `role_permission_info` WHERE `role_id` IN ('234')
 2023-04-03 13:14:02.286 [DEBU] {7981e31bcb545217abfa35404b7ca827} [  1 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
 2023-04-03 13:14:02.287 [DEBU] {50aff51bcb545217acfa3540644582ea} [  1 ms] [default] [shop] [rows:0  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE (0=1) AND `deleted_at` IS NULL
+2023-04-03 17:00:41.823 [DEBU] {49118d7c296152174a24603ff88265e0} [ 49 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2023-04-03 17:00:41.834 [DEBU] {49118d7c296152174a24603ff88265e0} [ 11 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-03 00:00:00' AND '2023-04-03 23:59:59') AND (id)
+2023-04-03 17:04:01.246 [DEBU] {172ffcec576152172598eb5f4ca5cd92} [ 17 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2023-04-03 17:04:01.247 [DEBU] {172ffcec576152172598eb5f4ca5cd92} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-03 00:00:00' AND '2023-04-03 23:59:59') AND (id)
+2023-04-03 17:05:29.454 [DEBU] {025cdc766c6152172698eb5ff383e859} [ 13 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-03 00:00:00' AND '2023-04-03 23:59:59') AND (id)
