@@ -39,3 +39,5 @@
 2023-04-03 17:04:01.246 [DEBU] {172ffcec576152172598eb5f4ca5cd92} [ 17 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
 2023-04-03 17:04:01.247 [DEBU] {172ffcec576152172598eb5f4ca5cd92} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-03 00:00:00' AND '2023-04-03 23:59:59') AND (id)
 2023-04-03 17:05:29.454 [DEBU] {025cdc766c6152172698eb5ff383e859} [ 13 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-03 00:00:00' AND '2023-04-03 23:59:59') AND (id)
+2023-04-03 17:24:45.303 [DEBU] {54e7ae94796252171595c8581a5db06e} [ 15 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2023-04-03 17:24:45.309 [DEBU] {54e7ae94796252171595c8581a5db06e} [  6 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`updated_at`,`desc`,`created_at`,`name`) VALUES('2023-04-03 17:24:45','','2023-04-03 17:24:45','运维') 

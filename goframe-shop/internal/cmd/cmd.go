@@ -62,6 +62,7 @@ var (
 					controller.Admin.Delete, // 管理员 删除
 					controller.Login,        // 登录
 					controller.Data,         // 数据大屏
+					controller.Role,         // 角色管理
 				)
 
 				group.Group("/", func(group *ghttp.RouterGroup) {

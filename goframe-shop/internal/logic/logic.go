@@ -11,6 +11,7 @@ import (
 	_ "goframe-shop/internal/logic/login"
 	_ "goframe-shop/internal/logic/middleware"
 	_ "goframe-shop/internal/logic/position"
+	_ "goframe-shop/internal/logic/role"
 	_ "goframe-shop/internal/logic/rotation"
 	_ "goframe-shop/internal/logic/session"
 )

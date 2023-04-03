@@ -9,7 +9,7 @@ import (
 	"goframe-shop/internal/service"
 )
 
-// Admin 内容管理
+// Admin 角色管理
 var Admin = cAdmin{}
 
 type cAdmin struct{}
