@@ -41,3 +41,27 @@
 2023-04-03 17:05:29.454 [DEBU] {025cdc766c6152172698eb5ff383e859} [ 13 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-03 00:00:00' AND '2023-04-03 23:59:59') AND (id)
 2023-04-03 17:24:45.303 [DEBU] {54e7ae94796252171595c8581a5db06e} [ 15 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
 2023-04-03 17:24:45.309 [DEBU] {54e7ae94796252171595c8581a5db06e} [  6 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`updated_at`,`desc`,`created_at`,`name`) VALUES('2023-04-03 17:24:45','','2023-04-03 17:24:45','运维') 
+2023-04-03 21:24:18.023 [DEBU] {892f85fd8b6f52173dff740c7afae845} [ 16 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2023-04-03 21:24:18.027 [DEBU] {892f85fd8b6f52173dff740c7afae845} [  3 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`desc`,`created_at`,`name`,`updated_at`) VALUES('java工程师','2023-04-03 21:24:18','开发','2023-04-03 21:24:18') 
+2023-04-03 21:27:30.210 [DEBU] {b9696abdb86f521733fa284794571c3d} [  5 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2023-04-03 21:27:30.215 [DEBU] {b9696abdb86f521733fa284794571c3d} [  5 ms] [default] [shop] [rows:1  ] UPDATE `role_info` SET `updated_at`='2023-04-03 21:27:30',`name`='开发',`desc`='go工程师' WHERE (`id`=6) AND `deleted_at` IS NULL
+2023-04-03 21:32:57.479 [DEBU] {ceff25f00470521738fa2847e3d6006e} [  5 ms] [default] [shop] [rows:1  ] UPDATE `role_info` SET `deleted_at`='2023-04-03 21:32:57' WHERE (`id`=5) AND `deleted_at` IS NULL
+2023-04-03 21:34:46.603 [ERRO] {488fd2571e70521739fa2847c2f11a0d} [ 15 ms] [default] [shop] [rows:0  ] INSERT INTO `role_info`(`created_at`,`name`,`desc`,`updated_at`) VALUES('2023-04-03 21:34:46','运维','java运维','2023-04-03 21:34:46') 
+Error: Error 1062: Duplicate entry '运维' for key 'role_info.unique_index'
+Stack:
+1.  goframe-shop/internal/logic/role.(*sRole).Create
+    /home/zk/Go_project/goframe-shop/internal/logic/role/role.go:25
+2.  goframe-shop/internal/controller.(*cRole).Create
+    /home/zk/Go_project/goframe-shop/internal/controller/role.go:16
+3.  goframe-shop/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:29
+4.  goframe-shop/internal/logic/middleware.(*sMiddleware).Ctx
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:84
+5.  goframe-shop/internal/logic/middleware.(*sMiddleware).CORS
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:89
+
+2023-04-03 21:36:47.765 [DEBU] {3d39998d3a7052173cb56d7e2c8835d3} [ 16 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2023-04-03 21:36:47.768 [DEBU] {3d39998d3a7052173cb56d7e2c8835d3} [  3 ms] [default] [shop] [rows:1  ] DELETE FROM `role_info` WHERE `id`=5
+2023-04-03 21:37:10.425 [DEBU] {124734d53f7052173db56d7e5376ff6a} [  0 ms] [default] [shop] [rows:3  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at`,`deleted_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-03 21:37:10.436 [DEBU] {124734d53f7052173db56d7e5376ff6a} [ 11 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `role_info` WHERE `deleted_at` IS NULL
+2023-04-03 21:37:10.437 [DEBU] {124734d53f7052173db56d7e5376ff6a} [  1 ms] [default] [shop] [rows:3  ] SELECT `id`,`name`,`desc`,`created_at`,`updated_at` FROM `role_info` WHERE `deleted_at` IS NULL LIMIT 0,20
