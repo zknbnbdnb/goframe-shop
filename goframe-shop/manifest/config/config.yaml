@@ -27,3 +27,6 @@ redis:
     db:      1
     pass:
     idleTimeout: 600
+
+upload:
+  path: "upload"

@@ -75,6 +75,9 @@ var (
 					group.ALLMap(g.Map{
 						"/backend/admin/info": controller.Admin.Info, // 管理员 详情,因为就他需要token,所以单独写
 					})
+					group.Bind(
+						controller.File,
+					)
 				})
 			})
 			s.Run()
