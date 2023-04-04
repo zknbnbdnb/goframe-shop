@@ -1,0 +1,7 @@
+2023-04-04 21:52:27.910 [DEBU] {04728d02aabf521763041d7b8f904ba7} [ 39 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2023-04-04 21:52:27.918 [DEBU] {04728d02aabf521763041d7b8f904ba7} [  7 ms] [default] [shop] [rows:1  ] INSERT INTO `permission_info`(`updated_at`,`created_at`,`name`,`path`) VALUES('2023-04-04 21:52:27','2023-04-04 21:52:27','sp','admin/goods') 
+2023-04-04 21:53:27.142 [DEBU] {677cf2ceb7bf521764041d7ba13eed8d} [  7 ms] [default] [shop] [rows:1  ] UPDATE `permission_info` SET `name`='sadkj',`path`='admin/qita',`updated_at`='2023-04-04 21:53:27' WHERE (`id`=7) AND `deleted_at` IS NULL
+2023-04-04 21:55:25.013 [DEBU] {3d2daf40d3bf521765041d7ba54a1956} [  6 ms] [default] [shop] [rows:1  ] DELETE FROM `permission_info` WHERE `id`=7
+2023-04-04 21:55:45.991 [DEBU] {f89c7023d8bf521766041d7be0b7ec3c} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-04 21:55:45.993 [DEBU] {f89c7023d8bf521766041d7be0b7ec3c} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2023-04-04 21:55:45.993 [DEBU] {f89c7023d8bf521766041d7be0b7ec3c} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,20
