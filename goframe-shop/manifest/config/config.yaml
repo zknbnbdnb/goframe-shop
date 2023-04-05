@@ -35,4 +35,4 @@ qiniu:
   bucket: "xxx"
   accessKey: "x"
   secretKey: "x"
-  url: "http://xxx.xxx.xxx
+  url: "http://xxx.xxx.xxx"
