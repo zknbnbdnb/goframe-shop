@@ -76,7 +76,8 @@ var (
 						"/backend/admin/info": controller.Admin.Info, // 管理员 详情,因为就他需要token,所以单独写
 					})
 					group.Bind(
-						controller.File,
+						controller.File,   // 从0到1实现文件入库
+						controller.Upload, // 实现可跨项目使用文件上传的工具类
 					)
 				})
 			})

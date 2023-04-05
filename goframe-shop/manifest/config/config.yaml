@@ -30,3 +30,9 @@ redis:
 
 upload:
   path: "upload"
+
+qiniu:
+  bucket: "xxx"
+  accessKey: "x"
+  secretKey: "x"
+  url: "http://xxx.xxx.xxx
