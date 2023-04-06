@@ -1,6 +1,9 @@
 package consts
 
 const (
+	ProjectName              = "goFrame-shop"
+	ProjectUsage             = "zk"
+	ProjectBrief             = "start http server"
 	Version                  = "v0.2.0"             // 当前服务版本(用于模板展示)
 	CaptchaDefaultName       = "CaptchaDefaultName" // 验证码默认存储空间名称
 	ContextKey               = "ContextKey"         // 上下文变量存储键名，前后端系统共享
@@ -11,4 +14,9 @@ const (
 	CtxAdminIsAdmin          = "CtxAdminIsAdmin"
 	CtxAdminRoleIds          = "CtxAdminRoleIds"
 	CodeMissingParameterMsg  = "缺少参数"
+	CacheModeRedis           = 2
+	BackendServerName        = "goFrame-shop"
+	MultiLogin               = true
+	ErrLoginFailMsg          = "登录失败, 账号或密码错误."
+	GTokenExpireIn           = 86400 //10 * 24 * 60 * 60单位秒
 )

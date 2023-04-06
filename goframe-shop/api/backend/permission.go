@@ -8,7 +8,7 @@ type PermissionCreatUpdateBase struct {
 }
 
 type PermissionReq struct {
-	g.Meta `path:"/backend/permission/add" method:"post" tags:"permission" desc:"添加权限"`
+	g.Meta `path:"/permission/add" method:"post" tags:"permission" desc:"添加权限"`
 	PermissionCreatUpdateBase
 }
 
@@ -17,7 +17,7 @@ type PermissionRes struct {
 }
 
 type PermissionUpdateReq struct {
-	g.Meta `path:"/backend/permission/update" method:"post" tags:"permission" desc:"跟新权限"`
+	g.Meta `path:"/permission/update" method:"post" tags:"permission" desc:"跟新权限"`
 	Id     uint `json:"id" v:"required#ID必填" dc:"权限ID"`
 	PermissionCreatUpdateBase
 }
@@ -28,13 +28,13 @@ type PermissionUpdateRes struct {
 
 // Delete 删除
 type PermissionDeleteReq struct {
-	g.Meta `path:"/backend/permission/delete" method:"delete" tags:"权限" summary:"删除权限接口"`
+	g.Meta `path:"/permission/delete" method:"delete" tags:"权限" summary:"删除权限接口"`
 	Id     uint `v:"min:1#请选择需要删除的权限" dc:"权限id"`
 }
 type PermissionDeleteRes struct{}
 
 type PermissionGetListCommonReq struct {
-	g.Meta              `path:"/backend/permission/list" method:"get" tags:"权限" summary:"权限列表接口"`
+	g.Meta              `path:"/permission/list" method:"get" tags:"权限" summary:"权限列表接口"`
 	Sort                int `json:"sort"   in:"query" dc:"排序类型"`
 	CommonPaginationReq     // 翻页配置
 }

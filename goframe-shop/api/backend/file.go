@@ -6,7 +6,7 @@ import (
 )
 
 type FileUploadReq struct {
-	g.Meta `path:"/backend/file" method:"post" mime:"multipart/form-data" tags:"工具" dc:"文件上传"`
+	g.Meta `path:"/file" method:"post" mime:"multipart/form-data" tags:"工具" dc:"文件上传"`
 	File   *ghttp.UploadFile `json:"file"`
 }
 
