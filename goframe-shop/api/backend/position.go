@@ -39,7 +39,9 @@ type PositionUpdateReq struct {
 	GoodsId   uint   `json:"goods_id"       v:"required#商品id不能为空" dc:"商品id"`
 	Sort      int    `json:"sort"       dc:"排序"` // 当非必需时，可以不写v:"required#排序不能为空"
 }
-type PositionUpdateRes struct{}
+type PositionUpdateRes struct {
+	Id uint8 `json:"id"`
+}
 
 // PositionGetListCommonReq GetListCommon 获取列表
 type PositionGetListCommonReq struct {
