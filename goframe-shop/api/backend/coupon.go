@@ -6,7 +6,7 @@ type CouponAddUpdateBase struct {
 	Name       string `json:"name" v:"required#名称不能为空" dc:"名称"`
 	Price      int    `json:"price" v:"required#优惠券金额不能为空" dc:"优惠券金额"`
 	GoodsIds   string `json:"goods_ids" v:"required#商品id不能为空" dc:"支持优惠券商品id,多个用逗号隔开"`
-	CategoryId int    `json:"category_id" v:"required#分类id不能为空" dc:"支持优惠券商品分类id"`
+	CategoryId int    `json:"category_id" v:"required#分类id不能为空" dc:"支持优惠券优惠券id"`
 }
 
 // CouponReq Create 创建
@@ -20,8 +20,8 @@ type CouponRes struct {
 
 // CouponDeleteReq Delete 删除
 type CouponDeleteReq struct {
-	g.Meta `path:"/coupon/delete" method:"delete" tags:"商品分类" summary:"删除商品分类接口"`
-	Id     uint `v:"min:1#请选择需要删除的商品分类" dc:"商品分类id"`
+	g.Meta `path:"/coupon/delete" method:"delete" tags:"优惠券" summary:"删除优惠券接口"`
+	Id     uint `v:"min:1#请选择需要删除的优惠券" dc:"优惠券id"`
 }
 type CouponDeleteRes struct {
 	Id uint `json:"id"`
@@ -29,8 +29,8 @@ type CouponDeleteRes struct {
 
 // CouponUpdateReq Update 更新
 type CouponUpdateReq struct {
-	g.Meta `path:"/coupon/update" method:"post" tags:"商品分类" summary:"修改商品分类接口"`
-	Id     uint8 `json:"id"         v:"min:1#请选择需要修改的商品分类" dc:"商品分类Id"`
+	g.Meta `path:"/coupon/update" method:"post" tags:"优惠券" summary:"修改优惠券接口"`
+	Id     uint8 `json:"id"         v:"min:1#请选择需要修改的优惠券" dc:"优惠券Id"`
 	CouponAddUpdateBase
 }
 type CouponUpdateRes struct {
@@ -39,7 +39,7 @@ type CouponUpdateRes struct {
 
 // CouponGetListCommonReq GetListCommon 获取列表
 type CouponGetListCommonReq struct {
-	g.Meta              `path:"/coupon/list" method:"get" tags:"商品分类" summary:"商品分类列表接口"`
+	g.Meta              `path:"/coupon/list" method:"get" tags:"优惠券" summary:"优惠券列表接口"`
 	Sort                int `json:"sort"   in:"query" dc:"排序类型"`
 	CommonPaginationReq     // 翻页配置
 }

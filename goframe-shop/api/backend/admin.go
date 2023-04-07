@@ -6,7 +6,7 @@ import (
 
 // 表结构在admin_info中定义
 
-// Create 创建
+// AdminReq Create 创建
 type AdminReq struct {
 	g.Meta   `path:"/admin/add" tags:"Admin" method:"post" summary:"这是个注释"`
 	Name     string `json:"name" v:"required#用户名名称不能为空" dc:"用户名名称"`
