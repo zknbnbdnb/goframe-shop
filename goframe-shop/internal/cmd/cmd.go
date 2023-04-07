@@ -56,6 +56,7 @@ var (
 						controller.File,     // 从0到1实现文件入库
 						controller.Upload,   // 实现可跨项目使用文件上传的工具类
 						controller.Category, // 商品分类管理
+						controller.Coupon,   // 优惠券管理
 					)
 				})
 			})

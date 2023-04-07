@@ -16,7 +16,7 @@ type CategoryReq struct {
 	CategoryAddUpdateBase
 }
 type CategoryRes struct {
-	CategoryId int `json:"categoryId"`
+	CategoryId int `json:"category_isd"`
 }
 
 // CategoryDeleteReq Delete 删除
