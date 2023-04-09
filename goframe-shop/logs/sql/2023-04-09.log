@@ -110,3 +110,16 @@ Stack:
 2023-04-09 20:24:34.070 [DEBU] {d47f10f2c44354172e9d6e1bdd021fe8} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`,`deleted_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL LIMIT 0,20
 2023-04-09 20:24:34.071 [DEBU] {d47f10f2c44354172e9d6e1bdd021fe8} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `user_coupon_info` WHERE `deleted_at` IS NULL
 2023-04-09 20:24:34.072 [DEBU] {d47f10f2c44354172e9d6e1bdd021fe8} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`,`deleted_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-09 20:45:48.129 [DEBU] {b12e1b95ed445417a7dae6445aa72231} [ 12 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-04-09 20:45:48.131 [DEBU] {b12e1b95ed445417a7dae6445aa72231} [  2 ms] [default] [shop] [rows:9  ] [txid:1] SHOW FULL COLUMNS FROM `admin_info`
+2023-04-09 20:45:48.133 [DEBU] {b12e1b95ed445417a7dae6445aa72231} [  2 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `admin_info` SET `name`='zkbnb',`updated_at`='2023-04-09 20:45:48',`role_ids`='120' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 20:45:48.135 [DEBU] {b12e1b95ed445417a7dae6445aa72231} [  2 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-04-09 20:46:02.314 [DEBU] {58ee5de3f0445417a8dae644126e9859} [  1 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-04-09 20:46:02.325 [DEBU] {58ee5de3f0445417a8dae644126e9859} [ 11 ms] [default] [shop] [rows:1  ] [txid:2] UPDATE `admin_info` SET `role_ids`='120',`is_admin`=1,`updated_at`='2023-04-09 20:46:02',`name`='zkbn' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 20:46:02.327 [DEBU] {58ee5de3f0445417a8dae644126e9859} [  2 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2023-04-09 20:59:58.349 [DEBU] {9cb12a8ab34554177fd0e90a0b25a30e} [ 12 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `goods_options_info`
+2023-04-09 20:59:58.352 [DEBU] {9cb12a8ab34554177fd0e90a0b25a30e} [  3 ms] [default] [shop] [rows:1  ] INSERT INTO `goods_options_info`(`name`,`updated_at`,`pic_url`,`created_at`,`price`,`stock`,`goods_id`) VALUES('one plus 9p','2023-04-09 20:59:58','baidu.com','2023-04-09 20:59:58',6999,999,2) 
+2023-04-09 21:00:20.679 [DEBU] {b8b229bdb845541780d0e90a254cb911} [ 13 ms] [default] [shop] [rows:1  ] UPDATE `goods_options_info` SET `pic_url`='baidu.com',`name`='iphone 19',`price`=6999,`updated_at`='2023-04-09 21:00:20',`stock`=999,`goods_id`=2 WHERE (`id`=8) AND `deleted_at` IS NULL
+2023-04-09 21:00:27.098 [DEBU] {ea7c7a3cba45541781d0e90abb357302} [  0 ms] [default] [shop] [rows:4  ] SELECT `id`,`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`,`deleted_at` FROM `goods_options_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-09 21:00:27.100 [DEBU] {ea7c7a3cba45541781d0e90abb357302} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `goods_options_info` WHERE `deleted_at` IS NULL
+2023-04-09 21:00:27.102 [DEBU] {ea7c7a3cba45541781d0e90abb357302} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`goods_id`,`pic_url`,`name`,`price`,`stock`,`created_at`,`updated_at`,`deleted_at` FROM `goods_options_info` WHERE `deleted_at` IS NULL LIMIT 0,20

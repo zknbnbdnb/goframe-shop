@@ -68,6 +68,7 @@ func (s *sAdmin) Update(ctx context.Context, in model.AdminUpdateInput) error {
 		// 跟新密码
 		_, err := dao.AdminInfo.
 			Ctx(ctx).
+			OmitEmptyData().
 			Data(in).
 			FieldsEx(dao.AdminInfo.Columns().Id).
 			Where(dao.AdminInfo.Columns().Id, in.Id).

@@ -33,27 +33,16 @@ func (a *cAdmin) Delete(ctx context.Context, req *backend.AdminDeleteReq) (res *
 }
 
 func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *backend.AdminUpdateRes, err error) {
-	err = service.Admin().Update(ctx, model.AdminUpdateInput{
-		Id: req.Id,
-		AdminCreateUpdateBase: model.AdminCreateUpdateBase{
-			Name:     req.Name,
-			Password: req.Password,
-			RoleIds:  req.RoleIds,
-			IsAdmin:  req.IsAdmin,
-		},
-	})
-	return
-	// todo
-	//data := model.AdminUpdateInput{}
-	//err = gconv.Struct(req, &data)
-	//if err != nil {
-	//	return nil, err
-	//}
-	//err = service.Admin().Update(ctx, data)
-	//if err != nil {
-	//	return nil, err
-	//}
-	//return &backend.AdminUpdateRes{Id: req.Id}, nil
+	data := model.AdminUpdateInput{}
+	err = gconv.Struct(req, &data)
+	if err != nil {
+		return nil, err
+	}
+	err = service.Admin().Update(ctx, data)
+	if err != nil {
+		return nil, err
+	}
+	return &backend.AdminUpdateRes{Id: req.Id}, nil
 }
 
 func (a *cAdmin) List(ctx context.Context, req *backend.AdminGetListCommonReq) (res *backend.AdminGetListCommonRes, err error) {

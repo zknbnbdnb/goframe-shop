@@ -53,12 +53,13 @@ var (
 						"/admin/info": controller.Admin.Info, // 管理员 详情,因为就他需要token,所以单独写
 					})
 					group.Bind(
-						controller.File,       // 从0到1实现文件入库
-						controller.Upload,     // 实现可跨项目使用文件上传的工具类
-						controller.Category,   // 商品分类管理
-						controller.Coupon,     // 优惠券管理
-						controller.UserCoupon, // 用户优惠券管理
-						controller.Goods,      // 商品管理
+						controller.File,         // 从0到1实现文件入库
+						controller.Upload,       // 实现可跨项目使用文件上传的工具类
+						controller.Category,     // 商品分类管理
+						controller.Coupon,       // 优惠券管理
+						controller.UserCoupon,   // 用户优惠券管理
+						controller.Goods,        // 商品管理
+						controller.GoodsOptions, // 订单管理
 					)
 				})
 			})
