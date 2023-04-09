@@ -43,7 +43,7 @@ func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *
 		},
 	})
 	return
-
+	// todo
 	//data := model.AdminUpdateInput{}
 	//err = gconv.Struct(req, &data)
 	//if err != nil {
