@@ -1,6 +1,8 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import (
+	"goframe-shop/internal/model/entity"
+)
 
 // PermissionCreateUpdateBase 创建/修改内容基类
 type PermissionCreateUpdateBase struct {
@@ -59,11 +61,7 @@ type PermissionSearchOutput struct {
 }
 
 type PermissionGetListOutputItem struct {
-	Id        uint        `json:"id"`         // 自增ID
-	Name      string      `json:"name"`       // 用户名
-	Path      string      `json:"desc"`       //  描述
-	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
+	entity.PermissionInfo
 }
 
 type PermissionSearchOutputItem struct {

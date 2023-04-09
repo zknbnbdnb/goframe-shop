@@ -1,0 +1,112 @@
+2023-04-09 18:10:59.944 [DEBU] {b41855027b3c541706b86c4040d2eabd} [  4 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `goods_info`
+2023-04-09 18:10:59.950 [DEBU] {b41855027b3c541706b86c4040d2eabd} [  5 ms] [default] [shop] [rows:1  ] INSERT INTO `goods_info`(`sale`,`pic_url`,`level2_category_id`,`price`,`level1_category_id`,`updated_at`,`brand`,`tags`,`detail_info`,`name`,`stock`,`created_at`,`level3_category_id`) VALUES(999,'baidu.com',0,6999,0,'2023-04-09 18:10:59','一加','手机','一加手机啊','one plus 9p',999,'2023-04-09 18:10:59',0) 
+2023-04-09 18:20:25.115 [DEBU] {57ead898fe3c5417db6f1c744354e5d7} [ 14 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `goods_info`
+2023-04-09 18:20:25.119 [DEBU] {57ead898fe3c5417db6f1c744354e5d7} [  3 ms] [default] [shop] [rows:1  ] UPDATE `goods_info` SET `stock`=999,`name`='one plus 10p',`updated_at`='2023-04-09 18:20:25',`level1_category_id`=0,`pic_url`='baidu.com',`level3_category_id`=0,`sale`=999,`price`=6999,`tags`='手机',`level2_category_id`=0,`brand`='一加',`detail_info`='一加手机啊' WHERE (`id`=5) AND `deleted_at` IS NULL
+2023-04-09 18:32:18.911 [DEBU] {c9ed6ecaa43d5417853b707bb3a4f125} [ 14 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `admin_info`
+2023-04-09 18:32:18.917 [ERRO] {c9ed6ecaa43d5417853b707bb3a4f125} [  5 ms] [default] [shop] [rows:0  ] INSERT INTO `admin_info`(`name`,`password`,`role_ids`,`created_at`,`user_salt`,`updated_at`,`is_admin`) VALUES('zknbnbdnb','d9a57bf118ba6e70cfe1092551b607d9','234','2023-04-09 18:32:18','kNnuOn09ev','2023-04-09 18:32:18',1) 
+Error: Error 1062: Duplicate entry 'zknbnbdnb' for key 'admin_info.name_unique'
+Stack:
+1.  goframe-shop/internal/logic/admin.(*sAdmin).Create
+    /home/zk/Go_project/goframe-shop/internal/logic/admin/admin.go:37
+2.  goframe-shop/internal/controller.(*cAdmin).Create
+    /home/zk/Go_project/goframe-shop/internal/controller/admin.go:23
+3.  goframe-shop/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:29
+4.  goframe-shop/internal/logic/middleware.(*sMiddleware).Ctx
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:84
+5.  goframe-shop/internal/logic/middleware.(*sMiddleware).CORS
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:89
+
+2023-04-09 18:32:26.743 [DEBU] {ac1a609da63d5417863b707b417be6d4} [ 13 ms] [default] [shop] [rows:1  ] INSERT INTO `admin_info`(`created_at`,`name`,`updated_at`,`password`,`role_ids`,`user_salt`,`is_admin`) VALUES('2023-04-09 18:32:26','zk','2023-04-09 18:32:26','ad51ef5310855d33a026147243686b4e','234','K7oxkrowCK',1) 
+2023-04-09 18:42:08.375 [DEBU] {cb996a092e3e54179552072d744cef36} [ 11 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-04-09 18:42:08.377 [DEBU] {cb996a092e3e54179552072d744cef36} [  2 ms] [default] [shop] [rows:9  ] [txid:1] SHOW FULL COLUMNS FROM `admin_info`
+2023-04-09 18:42:08.377 [DEBU] {cb996a092e3e54179552072d744cef36} [  0 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `admin_info` SET `password`='',`role_ids`='12',`user_salt`='',`updated_at`='2023-04-09 18:42:08',`is_admin`=0,`name`='zkbnb' WHERE (`id`=16) AND `deleted_at` IS NULL
+2023-04-09 18:42:08.377 [DEBU] {cb996a092e3e54179552072d744cef36} [  0 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-04-09 18:42:15.165 [DEBU] {8871a69e2f3e54179652072d663d7544} [  3 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `rotation_info`
+2023-04-09 18:42:15.178 [DEBU] {8871a69e2f3e54179652072d663d7544} [ 13 ms] [default] [shop] [rows:1  ] INSERT INTO `rotation_info`(`link`,`sort`,`created_at`,`pic_url`,`updated_at`) VALUES('2',33,'2023-04-09 18:42:15','1','2023-04-09 18:42:15') 
+2023-04-09 18:43:15.313 [DEBU] {f8323c9f3d3e54179752072d8b7a0bd5} [ 12 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-04-09 18:43:15.314 [DEBU] {f8323c9f3d3e54179752072d8b7a0bd5} [  0 ms] [default] [shop] [rows:0  ] [txid:2] UPDATE `admin_info` SET `role_ids`='12',`updated_at`='2023-04-09 18:43:15',`is_admin`=0,`user_salt`='',`name`='zk',`password`='' WHERE (`id`=16) AND `deleted_at` IS NULL
+2023-04-09 18:43:15.315 [DEBU] {f8323c9f3d3e54179752072d8b7a0bd5} [  0 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2023-04-09 18:43:29.535 [DEBU] {4207a4ef403e54179852072d397ceef1} [  0 ms] [default] [shop] [rows:0  ] [txid:3] BEGIN
+2023-04-09 18:43:29.546 [DEBU] {4207a4ef403e54179852072d397ceef1} [ 10 ms] [default] [shop] [rows:1  ] [txid:3] UPDATE `admin_info` SET `password`='',`updated_at`='2023-04-09 18:43:29',`user_salt`='',`role_ids`='12',`is_admin`=0,`name`='zk' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 18:43:29.547 [DEBU] {4207a4ef403e54179852072d397ceef1} [  1 ms] [default] [shop] [rows:0  ] [txid:3] COMMIT
+2023-04-09 18:43:42.090 [DEBU] {df06f9db433e54179952072d936b26d6} [  0 ms] [default] [shop] [rows:0  ] [txid:4] BEGIN
+2023-04-09 18:43:42.091 [DEBU] {df06f9db433e54179952072d936b26d6} [  0 ms] [default] [shop] [rows:1  ] [txid:4] UPDATE `admin_info` SET `password`='',`role_ids`='12',`user_salt`='',`is_admin`=0,`updated_at`='2023-04-09 18:43:42',`name`='zk' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 18:43:42.093 [DEBU] {df06f9db433e54179952072d936b26d6} [  1 ms] [default] [shop] [rows:0  ] [txid:4] COMMIT
+2023-04-09 18:44:51.085 [DEBU] {03aeabeb533e5417ef80252405b0140f} [ 12 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-04-09 18:44:51.088 [DEBU] {03aeabeb533e5417ef80252405b0140f} [  3 ms] [default] [shop] [rows:9  ] [txid:1] SHOW FULL COLUMNS FROM `admin_info`
+2023-04-09 18:44:51.090 [DEBU] {03aeabeb533e5417ef80252405b0140f} [  2 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `admin_info` SET `name`='zk',`updated_at`='2023-04-09 18:44:51',`is_admin`=0,`password`='69b847a2102fbe392259c0a6e75fb334',`role_ids`='12',`user_salt`='7lyefgKKgT' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 18:44:51.092 [DEBU] {03aeabeb533e5417ef80252405b0140f} [  2 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-04-09 20:07:06.938 [DEBU] {51809122d14254175cffed4e3398bf57} [ 26 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-04-09 20:07:06.961 [DEBU] {51809122d14254175cffed4e3398bf57} [ 23 ms] [default] [shop] [rows:9  ] [txid:1] SHOW FULL COLUMNS FROM `admin_info`
+2023-04-09 20:07:06.965 [DEBU] {51809122d14254175cffed4e3398bf57} [  4 ms] [default] [shop] [rows:1  ] [txid:1] UPDATE `admin_info` SET `is_admin`=0,`updated_at`='2023-04-09 20:07:06',`name`='zk',`password`='',`role_ids`='12',`user_salt`='' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 20:07:06.970 [DEBU] {51809122d14254175cffed4e3398bf57} [  5 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-04-09 20:07:34.492 [DEBU] {e6887e8ed74254175dffed4eefed3ee1} [  0 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-04-09 20:07:34.494 [DEBU] {e6887e8ed74254175dffed4eefed3ee1} [  1 ms] [default] [shop] [rows:1  ] [txid:2] UPDATE `admin_info` SET `name`='zk',`updated_at`='2023-04-09 20:07:34',`user_salt`='',`password`='',`role_ids`='12',`is_admin`=0 WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 20:07:34.496 [DEBU] {e6887e8ed74254175dffed4eefed3ee1} [  2 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2023-04-09 20:09:17.950 [DEBU] {7b1f54a4ef4254174435b74bfd5d55bd} [ 12 ms] [default] [shop] [rows:0  ] [txid:1] BEGIN
+2023-04-09 20:09:17.953 [DEBU] {7b1f54a4ef4254174435b74bfd5d55bd} [  1 ms] [default] [shop] [rows:9  ] [txid:1] SHOW FULL COLUMNS FROM `admin_info`
+2023-04-09 20:09:17.954 [DEBU] {7b1f54a4ef4254174435b74bfd5d55bd} [  0 ms] [default] [shop] [rows:0  ] [txid:1] UPDATE `admin_info` SET `updated_at`='2023-04-09 20:09:17',`name`='zkbnb',`password`='fe71179ccafa6cac838a4d867eb79dea',`role_ids`='12',`user_salt`='0NqNPnrPbT',`is_admin`=0 WHERE (`id`=16) AND `deleted_at` IS NULL
+2023-04-09 20:09:17.955 [DEBU] {7b1f54a4ef4254174435b74bfd5d55bd} [  1 ms] [default] [shop] [rows:0  ] [txid:1] COMMIT
+2023-04-09 20:09:48.743 [DEBU] {781ec1cff64254174535b74bca3b397f} [ 12 ms] [default] [shop] [rows:0  ] [txid:2] BEGIN
+2023-04-09 20:09:48.745 [DEBU] {781ec1cff64254174535b74bca3b397f} [  1 ms] [default] [shop] [rows:1  ] [txid:2] UPDATE `admin_info` SET `name`='zkbnb',`password`='4674a77e6c8c8a2ff93f692261cfabe6',`role_ids`='12',`user_salt`='H1KaFwgUgd',`is_admin`=0,`updated_at`='2023-04-09 20:09:48' WHERE (`id`=19) AND `deleted_at` IS NULL
+2023-04-09 20:09:48.747 [DEBU] {781ec1cff64254174535b74bca3b397f} [  2 ms] [default] [shop] [rows:0  ] [txid:2] COMMIT
+2023-04-09 20:12:09.863 [DEBU] {7856f8aa174354174735b74bc27eb400} [  3 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `category_info`
+2023-04-09 20:12:09.865 [DEBU] {7856f8aa174354174735b74bc27eb400} [  2 ms] [default] [shop] [rows:1  ] UPDATE `category_info` SET `updated_at`='2023-04-09 20:12:09',`parent_id`=22,`name`=' dksbjnbn',`pic_url`='zzzzzzzzz',`level`=1,`sort`=23 WHERE (`id`=20) AND `deleted_at` IS NULL
+2023-04-09 20:12:24.157 [DEBU] {b0e8d1ff1a4354174835b74b3d60aaf4} [  0 ms] [default] [shop] [rows:9  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,20
+2023-04-09 20:12:24.167 [DEBU] {b0e8d1ff1a4354174835b74b3d60aaf4} [  9 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `category_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:12:24.168 [DEBU] {b0e8d1ff1a4354174835b74b3d60aaf4} [  0 ms] [default] [shop] [rows:9  ] SELECT `id`,`parent_id`,`name`,`pic_url`,`level`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `category_info` WHERE `deleted_at` IS NULL ORDER BY `sort` DESC LIMIT 0,20
+2023-04-09 20:13:41.001 [DEBU] {d175fbe32c4354174935b74b7b8f634c} [  2 ms] [default] [shop] [rows:0  ] [txid:3] BEGIN
+2023-04-09 20:13:41.003 [DEBU] {d175fbe32c4354174935b74b7b8f634c} [  2 ms] [default] [shop] [rows:7  ] [txid:3] SHOW FULL COLUMNS FROM `rotation_info`
+2023-04-09 20:13:41.004 [DEBU] {d175fbe32c4354174935b74b7b8f634c} [  1 ms] [default] [shop] [rows:1  ] [txid:3] UPDATE `rotation_info` SET `sort`=23,`updated_at`='2023-04-09 20:13:41',`link`='popopo',`pic_url`='wswwwwww' WHERE (`id`=16) AND `deleted_at` IS NULL
+2023-04-09 20:13:41.006 [DEBU] {d175fbe32c4354174935b74b7b8f634c} [  2 ms] [default] [shop] [rows:0  ] [txid:3] COMMIT
+2023-04-09 20:13:51.023 [DEBU] {d07675392f4354174a35b74be472810a} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,10
+2023-04-09 20:13:51.023 [DEBU] {d07675392f4354174a35b74be472810a} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:13:51.024 [DEBU] {d07675392f4354174a35b74be472810a} [  0 ms] [default] [shop] [rows:7  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,10
+2023-04-09 20:14:02.429 [DEBU] {7f5649e1314354174b35b74b1b075ff0} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-04-09 20:14:02.430 [DEBU] {7f5649e1314354174b35b74b1b075ff0} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `rotation_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:14:02.431 [DEBU] {7f5649e1314354174b35b74b1b075ff0} [  1 ms] [default] [shop] [rows:7  ] SELECT `id`,`pic_url`,`link`,`sort`,`created_at`,`updated_at`,`deleted_at` FROM `rotation_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-04-09 20:14:51.942 [DEBU] {a9d0e6673d4354174c35b74bc8455684} [ 11 ms] [default] [shop] [rows:0  ] [txid:4] BEGIN
+2023-04-09 20:14:51.944 [DEBU] {a9d0e6673d4354174c35b74bc8455684} [  1 ms] [default] [shop] [rows:9  ] [txid:4] SHOW FULL COLUMNS FROM `position_info`
+2023-04-09 20:14:51.946 [DEBU] {a9d0e6673d4354174c35b74bc8455684} [  1 ms] [default] [shop] [rows:1  ] [txid:4] UPDATE `position_info` SET `goods_id`=12,`goods_name`='kfc',`pic_url`='gg.com',`updated_at`='2023-04-09 20:14:51',`sort`=0,`link`='bb.com' WHERE (`id`=5) AND `deleted_at` IS NULL
+2023-04-09 20:14:51.948 [DEBU] {a9d0e6673d4354174c35b74bc8455684} [  2 ms] [default] [shop] [rows:0  ] [txid:4] COMMIT
+2023-04-09 20:14:58.983 [DEBU] {63c32b0c3f4354174d35b74bd671e9b8} [  1 ms] [default] [shop] [rows:2  ] SELECT `id`,`pic_url`,`goods_name`,`link`,`sort`,`goods_id`,`created_at`,`updated_at`,`deleted_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-04-09 20:14:58.984 [DEBU] {63c32b0c3f4354174d35b74bd671e9b8} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `position_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:14:58.984 [DEBU] {63c32b0c3f4354174d35b74bd671e9b8} [  0 ms] [default] [shop] [rows:2  ] SELECT `id`,`pic_url`,`goods_name`,`link`,`sort`,`goods_id`,`created_at`,`updated_at`,`deleted_at` FROM `position_info` WHERE `deleted_at` IS NULL ORDER BY `sort` LIMIT 0,20
+2023-04-09 20:15:18.524 [DEBU] {4685fb97434354174e35b74bd7acb6cf} [ 16 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2023-04-09 20:15:18.530 [DEBU] {4685fb97434354174e35b74bd7acb6cf} [  5 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-09 00:00:00' AND '2023-04-09 23:59:59') AND (id)
+2023-04-09 20:15:41.599 [DEBU] {a29e81f7484354174f35b74bb0026ad8} [ 14 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `role_info`
+2023-04-09 20:15:41.602 [DEBU] {a29e81f7484354174f35b74bb0026ad8} [  3 ms] [default] [shop] [rows:1  ] INSERT INTO `role_info`(`desc`,`created_at`,`name`,`updated_at`) VALUES('11','2023-04-09 20:15:41','撒娇快刀斩乱麻','2023-04-09 20:15:41') 
+2023-04-09 20:16:46.016 [DEBU] {cadebaf7574354175035b74bac213a37} [  3 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2023-04-09 20:16:46.018 [DEBU] {cadebaf7574354175035b74bac213a37} [  2 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`role_id`,`permission_id`,`created_at`,`updated_at`) VALUES(982,12,'2023-04-09 20:16:46','2023-04-09 20:16:46') 
+2023-04-09 20:17:08.602 [DEBU] {9399f4395d4354175135b74bfdba2808} [  3 ms] [default] [shop] [rows:1  ] UPDATE `role_info` SET `updated_at`='2023-04-09 20:17:08',`name`='实习生',`desc`='汕头大学' WHERE (`id`=8) AND `deleted_at` IS NULL
+2023-04-09 20:17:24.328 [DEBU] {4aeab6e2604354175235b74b0a514df2} [ 13 ms] [default] [shop] [rows:0  ] DELETE FROM `role_permission_info` WHERE `permission_id`=0 AND `role_id`=6
+2023-04-09 20:17:55.064 [DEBU] {2750b50a684354175335b74b6e8bfb29} [ 13 ms] [default] [shop] [rows:0  ] DELETE FROM `role_permission_info` WHERE `role_id`=6 AND `permission_id`=22
+2023-04-09 20:18:20.202 [DEBU] {be42fbe46d4354177dcb687dd7fe3bb1} [ 14 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2023-04-09 20:18:20.203 [DEBU] {be42fbe46d4354177dcb687dd7fe3bb1} [  1 ms] [default] [shop] [rows:0  ] DELETE FROM `role_permission_info` WHERE `permission_id`=22 AND `role_id`=6
+2023-04-09 20:18:24.569 [DEBU] {1fe812ea6e4354177ecb687d8b1114e2} [  1 ms] [default] [shop] [rows:0  ] DELETE FROM `role_permission_info` WHERE `role_id`=6 AND `permission_id`=22
+2023-04-09 20:19:49.798 [DEBU] {3af57bc1824354177fcb687df7c57c07} [ 11 ms] [default] [shop] [rows:0  ] DELETE FROM `role_permission_info` WHERE `role_id`=3 AND `permission_id`=22
+2023-04-09 20:19:54.076 [DEBU] {1d8604c18343541780cb687ddc67fa96} [  2 ms] [default] [shop] [rows:1  ] DELETE FROM `role_permission_info` WHERE `role_id`=3 AND `permission_id`=3
+2023-04-09 20:20:18.965 [DEBU] {a774db8b89435417229d6e1bc89f8459} [ 12 ms] [default] [shop] [rows:5  ] SHOW FULL COLUMNS FROM `role_permission_info`
+2023-04-09 20:20:18.968 [DEBU] {a774db8b89435417229d6e1bc89f8459} [  3 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`permission_id`,`created_at`,`updated_at`,`role_id`) VALUES(2,'2023-04-09 20:20:18','2023-04-09 20:20:18',2) 
+2023-04-09 20:21:26.359 [DEBU] {d4e2ce3c99435417239d6e1b0548e703} [ 14 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`role_id`,`permission_id`,`created_at`,`updated_at`) VALUES(3,3,'2023-04-09 20:21:26','2023-04-09 20:21:26') 
+2023-04-09 20:21:28.634 [DEBU] {36c790c499435417249d6e1ba930d46c} [ 11 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`role_id`,`permission_id`,`created_at`,`updated_at`) VALUES(4,3,'2023-04-09 20:21:28','2023-04-09 20:21:28') 
+2023-04-09 20:21:31.365 [DEBU] {a1c3e6679a435417259d6e1bb27a23c4} [  2 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`permission_id`,`created_at`,`updated_at`,`role_id`) VALUES(3,'2023-04-09 20:21:31','2023-04-09 20:21:31',5) 
+2023-04-09 20:21:35.082 [DEBU] {9356de449b435417269d6e1b86b3bbd9} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `role_permission_info`(`updated_at`,`role_id`,`permission_id`,`created_at`) VALUES('2023-04-09 20:21:35',7,3,'2023-04-09 20:21:35') 
+2023-04-09 20:21:50.458 [DEBU] {900e5ad99e435417279d6e1b02da02c9} [ 12 ms] [default] [shop] [rows:1  ] DELETE FROM `role_permission_info` WHERE `role_id`=2 AND `permission_id`=2
+2023-04-09 20:22:27.718 [DEBU] {0cba9086a7435417289d6e1b2adc919f} [  6 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `permission_info`
+2023-04-09 20:22:27.720 [DEBU] {0cba9086a7435417289d6e1b2adc919f} [  2 ms] [default] [shop] [rows:1  ] INSERT INTO `permission_info`(`updated_at`,`path`,`created_at`,`name`) VALUES('2023-04-09 20:22:27','igthub','2023-04-09 20:22:27','汕头大学') 
+2023-04-09 20:22:55.240 [DEBU] {17af86eead435417299d6e1b1d83e43e} [ 14 ms] [default] [shop] [rows:1  ] UPDATE `permission_info` SET `name`='北京大学',`updated_at`='2023-04-09 20:22:55',`path`='pku.com' WHERE (`id`=8) AND `deleted_at` IS NULL
+2023-04-09 20:23:04.159 [DEBU] {39b44302b04354172a9d6e1ba9cb9684} [ 12 ms] [default] [shop] [rows:5  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2023-04-09 20:23:04.160 [DEBU] {39b44302b04354172a9d6e1ba9cb9684} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `permission_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:23:04.161 [DEBU] {39b44302b04354172a9d6e1ba9cb9684} [  1 ms] [default] [shop] [rows:5  ] SELECT `id`,`name`,`path`,`created_at`,`updated_at`,`deleted_at` FROM `permission_info` WHERE `deleted_at` IS NULL LIMIT 0,10
+2023-04-09 20:23:38.425 [DEBU] {9bc472fcb74354172b9d6e1bdc5d5f72} [ 14 ms] [default] [shop] [rows:8  ] SHOW FULL COLUMNS FROM `coupon_info`
+2023-04-09 20:23:38.429 [DEBU] {9bc472fcb74354172b9d6e1bdc5d5f72} [  4 ms] [default] [shop] [rows:1  ] UPDATE `coupon_info` SET `updated_at`='2023-04-09 20:23:38',`name`='拼多多百亿补贴',`price`=9999,`goods_ids`='8,9',`category_id`=1 WHERE (`id`=13) AND `deleted_at` IS NULL
+2023-04-09 20:23:44.655 [DEBU] {2f0f9e70b94354172c9d6e1b39dff54e} [  1 ms] [default] [shop] [rows:14 ] SELECT `id`,`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at`,`deleted_at` FROM `coupon_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,20
+2023-04-09 20:23:44.656 [DEBU] {2f0f9e70b94354172c9d6e1b39dff54e} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `coupon_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:23:44.667 [DEBU] {2f0f9e70b94354172c9d6e1b39dff54e} [ 10 ms] [default] [shop] [rows:14 ] SELECT `id`,`name`,`price`,`goods_ids`,`category_id`,`created_at`,`updated_at`,`deleted_at` FROM `coupon_info` WHERE `deleted_at` IS NULL ORDER BY `price` DESC LIMIT 0,20
+2023-04-09 20:24:24.922 [DEBU] {e70b03d0c24354172d9d6e1b36d1b6ac} [ 13 ms] [default] [shop] [rows:7  ] SHOW FULL COLUMNS FROM `user_coupon_info`
+2023-04-09 20:24:24.925 [DEBU] {e70b03d0c24354172d9d6e1b36d1b6ac} [  2 ms] [default] [shop] [rows:1  ] UPDATE `user_coupon_info` SET `user_id`=1800,`coupon_id`=200,`status`=1,`updated_at`='2023-04-09 20:24:24' WHERE (`id`=1) AND `deleted_at` IS NULL
+2023-04-09 20:24:34.070 [DEBU] {d47f10f2c44354172e9d6e1bdd021fe8} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`,`deleted_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-09 20:24:34.071 [DEBU] {d47f10f2c44354172e9d6e1bdd021fe8} [  0 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `user_coupon_info` WHERE `deleted_at` IS NULL
+2023-04-09 20:24:34.072 [DEBU] {d47f10f2c44354172e9d6e1bdd021fe8} [  0 ms] [default] [shop] [rows:5  ] SELECT `id`,`user_id`,`coupon_id`,`status`,`created_at`,`updated_at`,`deleted_at` FROM `user_coupon_info` WHERE `deleted_at` IS NULL LIMIT 0,20

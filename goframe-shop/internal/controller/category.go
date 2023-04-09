@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/api/backend"
 	"goframe-shop/internal/model"
 	"goframe-shop/internal/service"
@@ -13,15 +14,12 @@ var Category = cCategory{}
 type cCategory struct{}
 
 func (a *cCategory) Create(ctx context.Context, req *backend.CategoryReq) (res *backend.CategoryRes, err error) {
-	out, err := service.Category().Create(ctx, model.CategoryCreateInput{
-		CategoryCreateUpdateBase: model.CategoryCreateUpdateBase{
-			ParentId: req.ParentId,
-			PicUrl:   req.PicUrl,
-			Name:     req.Name,
-			Sort:     req.Sort,
-			Level:    req.Level,
-		},
-	})
+	data := model.CategoryCreateInput{}
+	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
+	if err != nil {
+		return nil, err
+	}
+	out, err := service.Category().Create(ctx, data)
 	if err != nil {
 		return nil, err
 	}
@@ -34,16 +32,15 @@ func (a *cCategory) Delete(ctx context.Context, req *backend.CategoryDeleteReq) 
 }
 
 func (a *cCategory) Update(ctx context.Context, req *backend.CategoryUpdateReq) (res *backend.CategoryUpdateRes, err error) {
-	err = service.Category().Update(ctx, model.CategoryUpdateInput{
-		Id: uint(req.Id),
-		CategoryCreateUpdateBase: model.CategoryCreateUpdateBase{
-			ParentId: req.ParentId,
-			PicUrl:   req.PicUrl,
-			Name:     req.Name,
-			Sort:     req.Sort,
-			Level:    req.Level,
-		},
-	})
+	data := model.CategoryUpdateInput{}
+	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
+	if err != nil {
+		return nil, err
+	}
+	err = service.Category().Update(ctx, data)
+	if err != nil {
+		return nil, err
+	}
 	return &backend.CategoryUpdateRes{Id: req.Id}, nil
 }
 

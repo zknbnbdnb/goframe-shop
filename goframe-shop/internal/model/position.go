@@ -1,6 +1,6 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import "goframe-shop/internal/model/entity"
 
 // PositionCreateUpdateBase 创建/修改内容基类
 type PositionCreateUpdateBase struct {
@@ -62,29 +62,9 @@ type PositionSearchOutput struct {
 }
 
 type PositionGetListOutputItem struct {
-	//Position *PositionListItem `json:"position"`
-	//Category *PositionListCategoryItem `json:"category"`
-	//User     *PositionListUserItem      `json:"user"`
-	Id        uint        `json:"id"`         // 自增ID
-	PicUrl    string      `json:"pic_url"`    // 图片链接
-	Link      string      `json:"link"`       // 跳转链接
-	GoodsName string      `json:"goods_name"` // 商品名称
-	GoodsId   uint        `json:"goods_id"`   // 商品ID
-	Sort      uint        `json:"sort"`       // 排序，数值越低越靠前，默认为添加时的时间戳，可用于置顶
-	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
+	entity.PositionInfo
 }
 
 type PositionSearchOutputItem struct {
 	PositionGetListOutputItem
 }
-
-// PositionListItem 主要用于列表展示
-//type PositionListItem struct {
-//	Id        uint        `json:"id"`         // 自增ID
-//	PicUrl    string      `json:"pic_url"`    // 图片链接
-//	Link      string      `json:"link"`       // 跳转链接
-//	Sort      uint        `json:"sort"`       // 排序，数值越低越靠前，默认为添加时的时间戳，可用于置顶
-//	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-//	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
-//}

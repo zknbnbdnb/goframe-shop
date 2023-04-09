@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/api/backend"
 	"goframe-shop/internal/model"
 	"goframe-shop/internal/service"
@@ -13,15 +14,12 @@ var Position = cPosition{}
 type cPosition struct{}
 
 func (a *cPosition) Create(ctx context.Context, req *backend.PositionReq) (res *backend.PositionRes, err error) {
-	out, err := service.Position().Create(ctx, model.PositionCreateInput{
-		PositionCreateUpdateBase: model.PositionCreateUpdateBase{
-			PicUrl:    req.PicUrl,
-			Link:      req.Link,
-			Sort:      req.Sort,
-			GoodsName: req.GoodsName,
-			GoodsId:   req.GoodsId,
-		},
-	})
+	data := model.PositionCreateInput{}
+	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
+	if err != nil {
+		return nil, err
+	}
+	out, err := service.Position().Create(ctx, data)
 	if err != nil {
 		return nil, err
 	}
@@ -34,17 +32,16 @@ func (a *cPosition) Delete(ctx context.Context, req *backend.PositionDeleteReq) 
 }
 
 func (a *cPosition) Update(ctx context.Context, req *backend.PositionUpdateReq) (res *backend.PositionUpdateRes, err error) {
-	err = service.Position().Update(ctx, model.PositionUpdateInput{
-		Id: req.Id,
-		PositionCreateUpdateBase: model.PositionCreateUpdateBase{
-			PicUrl:    req.PicUrl,
-			Link:      req.Link,
-			Sort:      req.Sort,
-			GoodsName: req.GoodsName,
-			GoodsId:   req.GoodsId,
-		},
-	})
-	return
+	data := model.PositionUpdateInput{}
+	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
+	if err != nil {
+		return nil, err
+	}
+	err = service.Position().Update(ctx, data)
+	if err != nil {
+		return nil, err
+	}
+	return &backend.PositionUpdateRes{Id: uint8(req.Id)}, nil
 }
 
 func (a *cPosition) List(ctx context.Context, req *backend.PositionGetListCommonReq) (res *backend.PositionGetListCommonRes, err error) {

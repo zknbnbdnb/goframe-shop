@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/api/backend"
 	"goframe-shop/api/frontend"
 	"goframe-shop/internal/model"
@@ -14,13 +15,12 @@ var Rotation = cRotation{}
 type cRotation struct{}
 
 func (a *cRotation) Create(ctx context.Context, req *backend.RotationReq) (res *backend.RotationRes, err error) {
-	out, err := service.Rotation().Create(ctx, model.RotationCreateInput{
-		RotationCreateUpdateBase: model.RotationCreateUpdateBase{
-			PicUrl: req.PicUrl,
-			Link:   req.Link,
-			Sort:   req.Sort,
-		},
-	})
+	data := model.RotationCreateInput{}
+	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
+	if err != nil {
+		return nil, err
+	}
+	out, err := service.Rotation().Create(ctx, data)
 	if err != nil {
 		return nil, err
 	}
@@ -33,15 +33,16 @@ func (a *cRotation) Delete(ctx context.Context, req *backend.RotationDeleteReq) 
 }
 
 func (a *cRotation) Update(ctx context.Context, req *backend.RotationUpdateReq) (res *backend.RotationUpdateRes, err error) {
-	err = service.Rotation().Update(ctx, model.RotationUpdateInput{
-		Id: req.Id,
-		RotationCreateUpdateBase: model.RotationCreateUpdateBase{
-			PicUrl: req.PicUrl,
-			Link:   req.Link,
-			Sort:   req.Sort,
-		},
-	})
-	return
+	data := model.RotationUpdateInput{}
+	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
+	if err != nil {
+		return nil, err
+	}
+	err = service.Rotation().Update(ctx, data)
+	if err != nil {
+		return nil, err
+	}
+	return &backend.RotationUpdateRes{Id: req.Id}, nil
 }
 
 func (a *cRotation) List(ctx context.Context, req *backend.RotationGetListCommonReq) (res *backend.RotationGetListCommonRes, err error) {

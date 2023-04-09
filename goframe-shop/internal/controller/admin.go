@@ -15,14 +15,12 @@ var Admin = cAdmin{}
 type cAdmin struct{}
 
 func (a *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backend.AdminRes, err error) {
-	out, err := service.Admin().Create(ctx, model.AdminCreateInput{
-		AdminCreateUpdateBase: model.AdminCreateUpdateBase{
-			Name:     req.Name,
-			Password: req.Password,
-			RoleIds:  req.RoleIds,
-			IsAdmin:  req.IsAdmin,
-		},
-	})
+	data := model.AdminCreateInput{}
+	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
+	if err != nil {
+		return nil, err
+	}
+	out, err := service.Admin().Create(ctx, data)
 	if err != nil {
 		return nil, err
 	}
@@ -45,6 +43,17 @@ func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *
 		},
 	})
 	return
+
+	//data := model.AdminUpdateInput{}
+	//err = gconv.Struct(req, &data)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//err = service.Admin().Update(ctx, data)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//return &backend.AdminUpdateRes{Id: req.Id}, nil
 }
 
 func (a *cAdmin) List(ctx context.Context, req *backend.AdminGetListCommonReq) (res *backend.AdminGetListCommonRes, err error) {

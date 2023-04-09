@@ -1,6 +1,8 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import (
+	"goframe-shop/internal/model/entity"
+)
 
 // AdminCreateUpdateBase 创建/修改内容基类
 type AdminCreateUpdateBase struct {
@@ -62,29 +64,9 @@ type AdminSearchOutput struct {
 }
 
 type AdminGetListOutputItem struct {
-	//Admin *AdminListItem `json:"admin"`
-	//Category *AdminListCategoryItem `json:"category"`
-	//User     *AdminListUserItem      `json:"user"`
-	Id      uint   `json:"id"`       // 自增ID
-	Name    string `json:"name"`     // 用户名
-	RoleIds string `json:"role_ids"` // 角色ID
-	//Password  string      `json:"password"`   // 密码
-	//UserSalt  string      `json:"user_salt"`  // 用户盐
-	IsAdmin   int         `json:"is_admin"`   // 是否是管理员
-	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
+	entity.AdminInfo
 }
 
 type AdminSearchOutputItem struct {
 	AdminGetListOutputItem
 }
-
-// AdminListItem 主要用于列表展示
-//type AdminListItem struct {
-//	Id        uint        `json:"id"`         // 自增ID
-//	PicUrl    string      `json:"pic_url"`    // 图片链接
-//	Link      string      `json:"link"`       // 跳转链接
-//	Sort      uint        `json:"sort"`       // 排序，数值越低越靠前，默认为添加时的时间戳，可用于置顶
-//	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-//	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
-//}

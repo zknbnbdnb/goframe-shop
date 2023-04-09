@@ -1,6 +1,8 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import (
+	"goframe-shop/internal/model/entity"
+)
 
 // CategoryCreateUpdateBase 创建/修改内容基类
 type CategoryCreateUpdateBase struct {
@@ -62,17 +64,7 @@ type CategorySearchOutput struct {
 }
 
 type CategoryGetListOutputItem struct {
-	//Category *CategoryListItem `json:"category"`
-	//Category *CategoryListCategoryItem `json:"category"`
-	//User     *CategoryListUserItem      `json:"user"`
-	Id        uint        `json:"id"`         // 自增ID
-	ParentId  int         `json:"parent_id"`  // 父级ID
-	Name      string      `json:"link"`       // 跳转链接
-	PicUrl    string      `json:"pic_url"`    // 图片链接
-	Level     uint8       `json:"level"`      // 等级
-	Sort      uint        `json:"sort"`       // 排序，数值越低越靠前，默认为添加时的时间戳，可用于置顶
-	CreatedAt *gtime.Time `json:"created_at"` // 创建时间
-	UpdatedAt *gtime.Time `json:"updated_at"` // 修改时间
+	entity.CategoryInfo
 }
 
 type CategorySearchOutputItem struct {

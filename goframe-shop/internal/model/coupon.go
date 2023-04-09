@@ -1,6 +1,8 @@
 package model
 
-import "github.com/gogf/gf/v2/os/gtime"
+import (
+	"goframe-shop/internal/model/entity"
+)
 
 // CouponCreateUpdateBase 创建/修改内容基类
 type CouponCreateUpdateBase struct {
@@ -61,16 +63,7 @@ type CouponSearchOutput struct {
 }
 
 type CouponGetListOutputItem struct {
-	//Coupon *CouponListItem `json:"coupon"`
-	//Coupon *CouponListCouponItem `json:"coupon"`
-	//User     *CouponListUserItem      `json:"user"`
-	Id         uint        `json:"id"` // 自增ID
-	Name       string      // 名称
-	Price      int         // 优惠券金额
-	GoodsIds   string      // 可用优惠券的商品id
-	CategoryId int         // 可用优惠券的分类id
-	CreatedAt  *gtime.Time `json:"created_at"` // 创建时间
-	UpdatedAt  *gtime.Time `json:"updated_at"` // 修改时间
+	entity.CouponInfo
 }
 
 type CouponSearchOutputItem struct {
