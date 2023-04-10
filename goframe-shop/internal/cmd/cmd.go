@@ -63,10 +63,15 @@ var (
 					)
 				})
 			})
+
+			frontendToken, err := StartFrontendGToken()
+			if err != nil {
+				return err
+			}
 			// 前台路由
 			s.Group("/frontend", func(group *ghttp.RouterGroup) {
 				group.Middleware(
-					service.Middleware().CORS,
+					service.Middleware().CORS, // 跨域请求中间件
 					service.Middleware().Ctx,
 					service.Middleware().ResponseHandler,
 				)
@@ -75,14 +80,13 @@ var (
 					controller.User.Register, // 用户注册
 				)
 				// 需要登录的路由
-				//group.Group("/", func(group *ghttp.RouterGroup) {
-				//	//group.Middleware(service.Middleware().Auth) // this middleware is for jwt
-				//	err := gfAdminToken.Middleware(ctx, group)
-				//	if err != nil {
-				//		panic(err)
-				//	}
-				//	group.Bind() // todo
-				//})
+				group.Group("/", func(group *ghttp.RouterGroup) {
+					err := frontendToken.Middleware(ctx, group)
+					if err != nil {
+						panic(err)
+					}
+					group.Bind() // todo
+				})
 
 			})
 			s.Run()

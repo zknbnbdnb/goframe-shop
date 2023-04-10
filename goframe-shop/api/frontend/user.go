@@ -1,9 +1,11 @@
 package frontend
 
-import "github.com/gogf/gf/v2/frame/g"
+import (
+	"github.com/gogf/gf/v2/frame/g"
+)
 
 type RegisterReq struct {
-	g.Meta       `path:"/user/register" method:"post" tags:"前台注册" summary:"注册接口"`
+	g.Meta       `path:"/register" method:"post" tags:"前台注册" summary:"用户注册"`
 	Name         string `json:"name"          description:"用户名" v:"required#用户名不能为空"`
 	Avatar       string `json:"avatar"        description:"头像"`
 	Password     string `json:"password"      description:"密码" v:"password"` //官方文档中的密码验证规则
@@ -16,4 +18,21 @@ type RegisterReq struct {
 
 type RegisterRes struct {
 	Id uint `json:"id"`
+}
+
+type LoginReq struct {
+	g.Meta   `path:"/login" method:"post" tags:"前台登录" summary:"用户登录"`
+	Name     string `json:"name"          description:"用户名" v:"required#用户名不能为空"`
+	Password string `json:"password"      description:"密码" v:"password"`
+}
+
+type LoginRes struct {
+	Name     string `json:"name"`
+	Avatar   string `json:"avatar"`
+	Sex      int    `json:"sex"`
+	Sign     string `json:"sign"`
+	Status   int    `json:"status"`
+	Type     string `json:"type"`
+	Token    string `json:"token"`
+	ExpireIn int    `json:"expire_in"`
 }

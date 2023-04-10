@@ -14,3 +14,11 @@ type RegisterInput struct {
 type RegisterOutput struct {
 	Id uint
 }
+
+type LoginInput struct {
+	Name     string
+	Password string
+}
+
+type LoginOutput struct {
+}
