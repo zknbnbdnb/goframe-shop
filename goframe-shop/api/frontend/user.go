@@ -49,3 +49,14 @@ type UserInfoBase struct {
 	Sign   string `json:"sign"`
 	Status int    `json:"status"`
 }
+
+type UpdatePasswordReq struct {
+	g.Meta       `path:"/update/password" method:"post" tags:"前台用户信息" summary:"修改密码"`
+	SecretAnswer string `json:"secret_answer" description:"密保问题的答案" v:"required#密保问题的答案不能为空"`
+	Password     string `json:"password"      description:"密码" v:"password"` //官方文档中的密码验证规则
+	UserSalt     string `json:"user_salt,omitempty"     description:"加密盐 生成密码用"`
+}
+
+type UpdatePasswordRes struct {
+	Id uint `json:"id"`
+}

@@ -25,7 +25,8 @@ const (
 	BackendServerName        = "goFrame-shop"
 	BackendMultiLogin        = true
 	FrontendMultiLogin       = false
-	ErrLoginFailMsg          = "登录失败, 账号或密码错误."
 	GTokenExpireIn           = 86400 //10 * 24 * 60 * 60单位秒
 	TokenType                = "Bearer"
+	ErrorSecretAnswerMsg     = "密保答案错误"
+	ErrLoginFailMsg          = "登录失败, 账号或密码错误."
 )
