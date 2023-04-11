@@ -10,10 +10,16 @@ const (
 	FileMaxUploadCountMinute = 10                   // 同一用户1分钟之内最大上传数量
 	GTokenBackendPrefix      = "Admin:"             // gtoken登陆 管理后台 前缀区分
 	GTokenFrontendPrefix     = "User:"              // gtoken登陆 前台 前缀区分
-	CtxAdminId               = "CtxAdminId"
+	CtxAdminId               = "CtxAdminId"         // for admin
 	CtxAdminName             = "CtxAdminName"
 	CtxAdminIsAdmin          = "CtxAdminIsAdmin"
 	CtxAdminRoleIds          = "CtxAdminRoleIds"
+	CtxUserId                = "CtxUserId"
+	CtxUserName              = "CtxUserName" // for user
+	CtxUserAvatar            = "CtxUserAvatar"
+	CtxUserSex               = "CtxUserSex"
+	CtxUserSign              = "CtxUserSign"
+	CtxUserStatus            = "CtxUserStatus"
 	CodeMissingParameterMsg  = "缺少参数"
 	CacheModeRedis           = 2
 	BackendServerName        = "goFrame-shop"

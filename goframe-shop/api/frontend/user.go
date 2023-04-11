@@ -27,12 +27,25 @@ type LoginReq struct {
 }
 
 type LoginRes struct {
-	Name     string `json:"name"`
-	Avatar   string `json:"avatar"`
-	Sex      int    `json:"sex"`
-	Sign     string `json:"sign"`
-	Status   int    `json:"status"`
 	Type     string `json:"type"`
 	Token    string `json:"token"`
 	ExpireIn int    `json:"expire_in"`
+	UserInfoBase
+}
+
+type UserInfoReq struct {
+	g.Meta `path:"/user/info" method:"get" tags:"前台用户信息" summary:"用户信息"`
+}
+
+type UserInfoRes struct {
+	UserInfoBase
+}
+
+type UserInfoBase struct {
+	Id     uint   `json:"id"`
+	Name   string `json:"name"`
+	Avatar string `json:"avatar"`
+	Sex    int    `json:"sex"`
+	Sign   string `json:"sign"`
+	Status int    `json:"status"`
 }

@@ -85,7 +85,9 @@ var (
 					if err != nil {
 						panic(err)
 					}
-					group.Bind() // todo
+					group.Bind(
+						controller.User.Info,
+					)
 				})
 
 			})

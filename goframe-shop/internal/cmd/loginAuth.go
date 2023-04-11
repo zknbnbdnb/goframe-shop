@@ -28,7 +28,7 @@ func StartBackendGToken() (gfAdminToken *gtoken.GfToken, err error) {
 		LogoutPath:       "/logout",
 		AuthPaths:        g.SliceStr{"/admin/info"},                                 // 需要拦截的路径
 		AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不需要拦截的路径
-		AuthAfterFunc:    authAfterFunc,                                             // 小写只在内部调用
+		AuthAfterFunc:    authAfterFuncBackend,                                      // 小写只在内部调用
 		MultiLogin:       consts.BackendMultiLogin,
 	}
 	err = gfAdminToken.Start()
@@ -46,7 +46,7 @@ func StartFrontendGToken() (gfAdminToken *gtoken.GfToken, err error) {
 		LogoutPath:      "/logout",
 		//AuthPaths:        g.SliceStr{"/admin/info"},                                 // 需要拦截的路径
 		//AuthExcludePaths: g.SliceStr{"/admin/user/info", "/admin/system/user/info"}, // 不需要拦截的路径
-		AuthAfterFunc: authAfterFunc, // 小写只在内部调用
+		AuthAfterFunc: authAfterFuncFrontend, // 小写只在内部调用
 		MultiLogin:    consts.FrontendMultiLogin,
 	}
 	//err = gfAdminToken.Start() 不使用全局启动
@@ -175,18 +175,20 @@ func loginAfterFuncFrontend(r *ghttp.Request, respData gtoken.Resp) {
 			Type:     consts.TokenType,
 			Token:    respData.GetString("token"),
 			ExpireIn: consts.GTokenExpireIn,
-			Name:     userInfo.Name,
-			Avatar:   userInfo.Avatar,
-			Sex:      userInfo.Sex,
-			Sign:     userInfo.Sign,
-			Status:   userInfo.Status,
 		}
+		data.Id = uint(userInfo.Id)
+		data.Name = userInfo.Name
+		data.Avatar = userInfo.Avatar
+		data.Sex = userInfo.Sex
+		data.Sign = userInfo.Sign
+		data.Status = userInfo.Status
 		response.JsonExit(r, 0, "", data)
 	}
 	return
 }
 
-func authAfterFunc(r *ghttp.Request, respData gtoken.Resp) {
+// authAfterFuncBackend 后台后置函数
+func authAfterFuncBackend(r *ghttp.Request, respData gtoken.Resp) {
 	g.Dump("respData:", respData)
 	var adminInfo entity.AdminInfo
 	err := gconv.Struct(respData.GetString("data"), &adminInfo)
@@ -203,5 +205,28 @@ func authAfterFunc(r *ghttp.Request, respData gtoken.Resp) {
 	r.SetCtxVar(consts.CtxAdminName, adminInfo.Name)
 	r.SetCtxVar(consts.CtxAdminIsAdmin, adminInfo.IsAdmin)
 	r.SetCtxVar(consts.CtxAdminRoleIds, adminInfo.RoleIds)
+	r.Middleware.Next()
+}
+
+// authAfterFuncFrontend 前台后置函数
+func authAfterFuncFrontend(r *ghttp.Request, respData gtoken.Resp) {
+	g.Dump("respData:", respData)
+	var userInfo entity.UserInfo
+	err := gconv.Struct(respData.GetString("data"), &userInfo)
+	if err != nil {
+		response.Auth(r)
+		return
+	}
+	//账号被冻结拉黑
+	if userInfo.DeletedAt != nil {
+		response.AuthBlack(r)
+		return
+	}
+	r.SetCtxVar(consts.CtxUserId, userInfo.Id)
+	r.SetCtxVar(consts.CtxUserName, userInfo.Name)
+	r.SetCtxVar(consts.CtxUserAvatar, userInfo.Avatar)
+	r.SetCtxVar(consts.CtxUserSex, userInfo.Sex)
+	r.SetCtxVar(consts.CtxUserSign, userInfo.Sign)
+	r.SetCtxVar(consts.CtxUserStatus, userInfo.Status)
 	r.Middleware.Next()
 }
