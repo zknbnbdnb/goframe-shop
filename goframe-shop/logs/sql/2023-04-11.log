@@ -12,3 +12,17 @@
 2023-04-11 22:02:37.429 [DEBU] {9f3832e847e654175cadd61e143f1339} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='zknbnbdnb') AND `deleted_at` IS NULL LIMIT 1
 2023-04-11 22:02:41.533 [DEBU] {0c15cadc48e654175eadd61e61df07e1} [  1 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`name`='zknbnbdnb') AND `deleted_at` IS NULL LIMIT 1
 2023-04-11 22:02:41.534 [DEBU] {700cecdc48e654175fadd61ef17f0759} [  0 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`avatar`,`password`,`user_salt`,`sex`,`status`,`sign`,`secret_answer`,`created_at`,`updated_at`,`deleted_at` FROM `user_info` WHERE (`id`='5') AND `deleted_at` IS NULL LIMIT 1
+2023-04-11 22:58:31.091 [DEBU] {cdf7afbc54e954172880793758f01938} [ 12 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `collection_info`
+2023-04-11 22:58:31.095 [DEBU] {cdf7afbc54e954172880793758f01938} [  4 ms] [default] [shop] [rows:1  ] INSERT INTO `collection_info`(`updated_at`,`object_id`,`type`,`created_at`,`user_id`) VALUES('2023-04-11 22:58:31',33,2,'2023-04-11 22:58:31',0) 
+2023-04-11 22:58:55.616 [DEBU] {471b13735ae9541729807937bfa0b6d8} [ 13 ms] [default] [shop] [rows:1  ] INSERT INTO `collection_info`(`user_id`,`updated_at`,`object_id`,`type`,`created_at`) VALUES(0,'2023-04-11 22:58:55',33,1,'2023-04-11 22:58:55') 
+2023-04-11 22:59:40.698 [DEBU] {c22406f264e954172a807937f6fd38ff} [ 15 ms] [default] [shop] [rows:1  ] DELETE FROM `collection_info` WHERE `id`=17
+2023-04-11 23:28:45.475 [DEBU] {aa77332dfbea5417692d7b672727a240} [ 41 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `collection_info`
+2023-04-11 23:28:45.482 [DEBU] {aa77332dfbea5417692d7b672727a240} [  6 ms] [default] [shop] [rows:1  ] INSERT INTO `collection_info`(`object_id`,`type`,`created_at`,`user_id`,`updated_at`) VALUES(33,1,'2023-04-11 23:28:45',5,'2023-04-11 23:28:45') 
+2023-04-11 23:30:52.957 [DEBU] {04e101de18eb54176b2d7b67462399a2} [  4 ms] [default] [shop] [rows:0  ] DELETE FROM `collection_info` WHERE `id`=2
+2023-04-11 23:31:23.263 [DEBU] {004dbeeb1feb54174c581a11d408064f} [ 14 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `collection_info`
+2023-04-11 23:31:23.264 [DEBU] {004dbeeb1feb54174c581a11d408064f} [  0 ms] [default] [shop] [rows:0  ] DELETE FROM `collection_info` WHERE `id`=2
+2023-04-11 23:31:36.268 [DEBU] {04afc1f322eb54174d581a11ee34a758} [  1 ms] [default] [shop] [rows:0  ] DELETE FROM `collection_info` WHERE `id`=5
+2023-04-11 23:31:48.132 [DEBU] {7a76f2b625eb54174e581a119ff64fc5} [  0 ms] [default] [shop] [rows:0  ] DELETE FROM `collection_info` WHERE `id`=5
+2023-04-11 23:32:08.202 [DEBU] {584054622aeb5417a4dea95aaf9820b3} [ 14 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `collection_info`
+2023-04-11 23:32:08.203 [DEBU] {584054622aeb5417a4dea95aaf9820b3} [  0 ms] [default] [shop] [rows:0  ] DELETE FROM `collection_info` WHERE `id`=5
+2023-04-11 23:32:18.633 [DEBU] {27043bd02ceb5417a5dea95a6298e441} [ 12 ms] [default] [shop] [rows:1  ] DELETE FROM `collection_info` WHERE `id`=18

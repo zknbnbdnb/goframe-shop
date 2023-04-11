@@ -14,7 +14,7 @@ var Admin = cAdmin{}
 
 type cAdmin struct{}
 
-func (a *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backend.AdminRes, err error) {
+func (c *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backend.AdminRes, err error) {
 	data := model.AdminCreateInput{}
 	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
 	if err != nil {
@@ -27,12 +27,12 @@ func (a *cAdmin) Create(ctx context.Context, req *backend.AdminReq) (res *backen
 	return &backend.AdminRes{AdminId: out.AdminId}, nil
 }
 
-func (a *cAdmin) Delete(ctx context.Context, req *backend.AdminDeleteReq) (res *backend.AdminDeleteRes, err error) {
+func (c *cAdmin) Delete(ctx context.Context, req *backend.AdminDeleteReq) (res *backend.AdminDeleteRes, err error) {
 	err = service.Admin().Delete(ctx, req.Id)
 	return
 }
 
-func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *backend.AdminUpdateRes, err error) {
+func (c *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *backend.AdminUpdateRes, err error) {
 	data := model.AdminUpdateInput{}
 	err = gconv.Struct(req, &data)
 	if err != nil {
@@ -45,7 +45,7 @@ func (a *cAdmin) Update(ctx context.Context, req *backend.AdminUpdateReq) (res *
 	return &backend.AdminUpdateRes{Id: req.Id}, nil
 }
 
-func (a *cAdmin) List(ctx context.Context, req *backend.AdminGetListCommonReq) (res *backend.AdminGetListCommonRes, err error) {
+func (c *cAdmin) List(ctx context.Context, req *backend.AdminGetListCommonReq) (res *backend.AdminGetListCommonRes, err error) {
 	getListRes, err := service.Admin().GetList(ctx, model.AdminGetListInput{
 		Page: req.Page,
 		Size: req.Size,

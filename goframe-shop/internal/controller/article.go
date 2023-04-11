@@ -14,7 +14,7 @@ var Article = cArticle{}
 
 type cArticle struct{}
 
-func (a *cArticle) Create(ctx context.Context, req *backend.ArticleReq) (res *backend.ArticleRes, err error) {
+func (c *cArticle) Create(ctx context.Context, req *backend.ArticleReq) (res *backend.ArticleRes, err error) {
 	data := model.ArticleCreateInput{}
 	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
 	if err != nil {
@@ -28,12 +28,12 @@ func (a *cArticle) Create(ctx context.Context, req *backend.ArticleReq) (res *ba
 	return &backend.ArticleRes{ArticleId: out.ArticleId}, nil
 }
 
-func (a *cArticle) Delete(ctx context.Context, req *backend.ArticleDeleteReq) (res *backend.ArticleDeleteRes, err error) {
+func (c *cArticle) Delete(ctx context.Context, req *backend.ArticleDeleteReq) (res *backend.ArticleDeleteRes, err error) {
 	err = service.Article().Delete(ctx, req.Id)
 	return
 }
 
-func (a *cArticle) Update(ctx context.Context, req *backend.ArticleUpdateReq) (res *backend.ArticleUpdateRes, err error) {
+func (c *cArticle) Update(ctx context.Context, req *backend.ArticleUpdateReq) (res *backend.ArticleUpdateRes, err error) {
 	data := model.ArticleUpdateInput{}
 	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
 	if err != nil {
@@ -48,7 +48,7 @@ func (a *cArticle) Update(ctx context.Context, req *backend.ArticleUpdateReq) (r
 	return &backend.ArticleUpdateRes{Id: req.Id}, nil
 }
 
-func (a *cArticle) List(ctx context.Context, req *backend.ArticleGetListCommonReq) (res *backend.ArticleGetListCommonRes, err error) {
+func (c *cArticle) List(ctx context.Context, req *backend.ArticleGetListCommonReq) (res *backend.ArticleGetListCommonRes, err error) {
 	getListRes, err := service.Article().GetList(ctx, model.ArticleGetListInput{
 		Page: req.Page,
 		Size: req.Size,

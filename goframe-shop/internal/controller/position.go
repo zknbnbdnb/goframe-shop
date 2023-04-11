@@ -13,7 +13,7 @@ var Position = cPosition{}
 
 type cPosition struct{}
 
-func (a *cPosition) Create(ctx context.Context, req *backend.PositionReq) (res *backend.PositionRes, err error) {
+func (c *cPosition) Create(ctx context.Context, req *backend.PositionReq) (res *backend.PositionRes, err error) {
 	data := model.PositionCreateInput{}
 	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
 	if err != nil {
@@ -26,12 +26,12 @@ func (a *cPosition) Create(ctx context.Context, req *backend.PositionReq) (res *
 	return &backend.PositionRes{PositionId: out.PositionId}, nil
 }
 
-func (a *cPosition) Delete(ctx context.Context, req *backend.PositionDeleteReq) (res *backend.PositionDeleteRes, err error) {
+func (c *cPosition) Delete(ctx context.Context, req *backend.PositionDeleteReq) (res *backend.PositionDeleteRes, err error) {
 	err = service.Position().Delete(ctx, req.Id)
 	return
 }
 
-func (a *cPosition) Update(ctx context.Context, req *backend.PositionUpdateReq) (res *backend.PositionUpdateRes, err error) {
+func (c *cPosition) Update(ctx context.Context, req *backend.PositionUpdateReq) (res *backend.PositionUpdateRes, err error) {
 	data := model.PositionUpdateInput{}
 	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
 	if err != nil {
@@ -44,7 +44,7 @@ func (a *cPosition) Update(ctx context.Context, req *backend.PositionUpdateReq) 
 	return &backend.PositionUpdateRes{Id: uint8(req.Id)}, nil
 }
 
-func (a *cPosition) List(ctx context.Context, req *backend.PositionGetListCommonReq) (res *backend.PositionGetListCommonRes, err error) {
+func (c *cPosition) List(ctx context.Context, req *backend.PositionGetListCommonReq) (res *backend.PositionGetListCommonRes, err error) {
 	getListRes, err := service.Position().GetList(ctx, model.PositionGetListInput{
 		Page: req.Page,
 		Size: req.Size,

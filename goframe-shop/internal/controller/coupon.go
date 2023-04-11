@@ -13,7 +13,7 @@ var Coupon = cCoupon{}
 
 type cCoupon struct{}
 
-func (a *cCoupon) Create(ctx context.Context, req *backend.CouponReq) (res *backend.CouponRes, err error) {
+func (c *cCoupon) Create(ctx context.Context, req *backend.CouponReq) (res *backend.CouponRes, err error) {
 	data := model.CouponCreateInput{}
 	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
 	if err != nil {
@@ -26,12 +26,12 @@ func (a *cCoupon) Create(ctx context.Context, req *backend.CouponReq) (res *back
 	return &backend.CouponRes{CouponId: out.CouponId}, nil
 }
 
-func (a *cCoupon) Delete(ctx context.Context, req *backend.CouponDeleteReq) (res *backend.CouponDeleteRes, err error) {
+func (c *cCoupon) Delete(ctx context.Context, req *backend.CouponDeleteReq) (res *backend.CouponDeleteRes, err error) {
 	err = service.Coupon().Delete(ctx, req.Id)
 	return
 }
 
-func (a *cCoupon) Update(ctx context.Context, req *backend.CouponUpdateReq) (res *backend.CouponUpdateRes, err error) {
+func (c *cCoupon) Update(ctx context.Context, req *backend.CouponUpdateReq) (res *backend.CouponUpdateRes, err error) {
 	data := model.CouponUpdateInput{}
 	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
 	if err != nil {
@@ -44,7 +44,7 @@ func (a *cCoupon) Update(ctx context.Context, req *backend.CouponUpdateReq) (res
 	return &backend.CouponUpdateRes{Id: req.Id}, nil
 }
 
-func (a *cCoupon) List(ctx context.Context, req *backend.CouponGetListCommonReq) (res *backend.CouponGetListCommonRes, err error) {
+func (c *cCoupon) List(ctx context.Context, req *backend.CouponGetListCommonReq) (res *backend.CouponGetListCommonRes, err error) {
 	getListRes, err := service.Coupon().GetList(ctx, model.CouponGetListInput{
 		Page: req.Page,
 		Size: req.Size,

@@ -13,7 +13,7 @@ var GoodsOptions = cGoodsOptions{}
 
 type cGoodsOptions struct{}
 
-func (a *cGoodsOptions) Create(ctx context.Context, req *backend.GoodsOptionsReq) (res *backend.GoodsOptionsRes, err error) {
+func (c *cGoodsOptions) Create(ctx context.Context, req *backend.GoodsOptionsReq) (res *backend.GoodsOptionsRes, err error) {
 	data := model.GoodsOptionsCreateInput{}
 	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
 	if err != nil {
@@ -26,12 +26,12 @@ func (a *cGoodsOptions) Create(ctx context.Context, req *backend.GoodsOptionsReq
 	return &backend.GoodsOptionsRes{GoodsOptionsId: out.GoodsOptionsId}, nil
 }
 
-func (a *cGoodsOptions) Delete(ctx context.Context, req *backend.GoodsOptionsDeleteReq) (res *backend.GoodsOptionsDeleteRes, err error) {
+func (c *cGoodsOptions) Delete(ctx context.Context, req *backend.GoodsOptionsDeleteReq) (res *backend.GoodsOptionsDeleteRes, err error) {
 	err = service.GoodsOptions().Delete(ctx, req.Id)
 	return
 }
 
-func (a *cGoodsOptions) Update(ctx context.Context, req *backend.GoodsOptionsUpdateReq) (res *backend.GoodsOptionsUpdateRes, err error) {
+func (c *cGoodsOptions) Update(ctx context.Context, req *backend.GoodsOptionsUpdateReq) (res *backend.GoodsOptionsUpdateRes, err error) {
 	data := model.GoodsOptionsUpdateInput{}
 	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
 	if err != nil {
@@ -44,7 +44,7 @@ func (a *cGoodsOptions) Update(ctx context.Context, req *backend.GoodsOptionsUpd
 	return &backend.GoodsOptionsUpdateRes{Id: req.Id}, nil
 }
 
-func (a *cGoodsOptions) List(ctx context.Context, req *backend.GoodsOptionsGetListCommonReq) (res *backend.GoodsOptionsGetListCommonRes, err error) {
+func (c *cGoodsOptions) List(ctx context.Context, req *backend.GoodsOptionsGetListCommonReq) (res *backend.GoodsOptionsGetListCommonRes, err error) {
 	getListRes, err := service.GoodsOptions().GetList(ctx, model.GoodsOptionsGetListInput{
 		Page: req.Page,
 		Size: req.Size,

@@ -13,7 +13,7 @@ var Category = cCategory{}
 
 type cCategory struct{}
 
-func (a *cCategory) Create(ctx context.Context, req *backend.CategoryReq) (res *backend.CategoryRes, err error) {
+func (c *cCategory) Create(ctx context.Context, req *backend.CategoryReq) (res *backend.CategoryRes, err error) {
 	data := model.CategoryCreateInput{}
 	err = gconv.Struct(req, &data) // 当你很明确的知道要转什么类型的时候就不用scan了，用scan会损失一部分性能
 	if err != nil {
@@ -26,12 +26,12 @@ func (a *cCategory) Create(ctx context.Context, req *backend.CategoryReq) (res *
 	return &backend.CategoryRes{CategoryId: out.CategoryId}, nil
 }
 
-func (a *cCategory) Delete(ctx context.Context, req *backend.CategoryDeleteReq) (res *backend.CategoryDeleteRes, err error) {
+func (c *cCategory) Delete(ctx context.Context, req *backend.CategoryDeleteReq) (res *backend.CategoryDeleteRes, err error) {
 	err = service.Category().Delete(ctx, req.Id)
 	return
 }
 
-func (a *cCategory) Update(ctx context.Context, req *backend.CategoryUpdateReq) (res *backend.CategoryUpdateRes, err error) {
+func (c *cCategory) Update(ctx context.Context, req *backend.CategoryUpdateReq) (res *backend.CategoryUpdateRes, err error) {
 	data := model.CategoryUpdateInput{}
 	err = gconv.Struct(req, &data) // todo 当字段较长就可以使用gconv来进行转换
 	if err != nil {
@@ -44,7 +44,7 @@ func (a *cCategory) Update(ctx context.Context, req *backend.CategoryUpdateReq) 
 	return &backend.CategoryUpdateRes{Id: req.Id}, nil
 }
 
-func (a *cCategory) List(ctx context.Context, req *backend.CategoryGetListCommonReq) (res *backend.CategoryGetListCommonRes, err error) {
+func (c *cCategory) List(ctx context.Context, req *backend.CategoryGetListCommonReq) (res *backend.CategoryGetListCommonRes, err error) {
 	getListRes, err := service.Category().GetList(ctx, model.CategoryGetListInput{
 		Page: req.Page,
 		Size: req.Size,
