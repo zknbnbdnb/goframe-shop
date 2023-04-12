@@ -5,9 +5,9 @@ import (
 	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/encoding/ghtml"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
-	"goframe-shop/internal/model/entity"
 	"goframe-shop/internal/service"
 )
 
@@ -64,35 +64,23 @@ func (s *sPosition) Update(ctx context.Context, in model.PositionUpdateInput) er
 
 // GetList 查询内容列表
 func (s *sPosition) GetList(ctx context.Context, in model.PositionGetListInput) (out *model.PositionGetListOutput, err error) {
-	var (
-		m = dao.PositionInfo.Ctx(ctx)
-	)
-	out = &model.PositionGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.PositionInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
 	listModel := m.Page(in.Page, in.Size)
 	// 排序方式
 	listModel = listModel.Order(dao.PositionInfo.Columns().Sort)
-	// 执行查询
-	var list []*entity.PositionInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
+
 	out.Total, err = m.Count()
-	if err != nil {
-		return out, err
-	}
-	// Position todo
-	if err := listModel.Scan(&out.List); err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
 
+	if err := listModel.Scan(&out.List); err != nil {
+		return out, err
+	}
 	return
 }

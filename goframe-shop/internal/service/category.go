@@ -14,7 +14,7 @@ type (
 	ICategory interface {
 		Create(ctx context.Context, in model.CategoryCreateInput) (out model.CategoryCreateOutput, err error)
 		Delete(ctx context.Context, id uint) (err error)
-		Update(ctx context.Context, in model.CategoryUpdateInput) (err error)
+		Update(ctx context.Context, in model.CategoryUpdateInput) error
 		GetList(ctx context.Context, in model.CategoryGetListInput) (out *model.CategoryGetListOutput, err error)
 	}
 )

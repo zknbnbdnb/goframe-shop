@@ -14,6 +14,7 @@ type (
 	ICollection interface {
 		Add(ctx context.Context, in model.CollectionAddInput) (out *model.CollectionAddOutput, err error)
 		Delete(ctx context.Context, in model.CollectionDeleteInput) (out model.CollectionDeleteOutput, err error)
+		GetList(ctx context.Context, in model.CollectionListInput) (out *model.CollectionListOutput, err error)
 	}
 )
 

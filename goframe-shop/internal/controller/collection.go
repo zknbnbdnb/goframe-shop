@@ -38,3 +38,32 @@ func (c *cCollection) Delete(ctx context.Context, req *frontend.CollectionDelete
 	}
 	return &frontend.CollectionDeleteRes{Id: out.Id}, nil
 }
+
+func (c *cCollection) List(ctx context.Context, req *frontend.CollectionListReq) (res *frontend.CollectionListRes, err error) {
+	//getListRes, err := service.Category().GetList(ctx, model.CategoryGetListInput{
+	//	Page: req.Page,
+	//	Size: req.Size,
+	//})
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//return &backend.CategoryGetListCommonRes{List: getListRes.List,
+	//	Page:  getListRes.Page,
+	//	Size:  getListRes.Size,
+	//	Total: getListRes.Total}, nil
+
+	data := model.CollectionListInput{}
+	err = gconv.Struct(req, &data)
+	if err != nil {
+		return nil, err
+	}
+	out, err := service.Collection().GetList(ctx, data)
+	if err != nil {
+		return nil, err
+	}
+	return &frontend.CollectionListRes{List: out.List,
+		Page:  out.Page,
+		Size:  out.Size,
+		Total: out.Total}, nil
+}

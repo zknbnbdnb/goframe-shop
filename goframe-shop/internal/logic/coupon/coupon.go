@@ -3,9 +3,9 @@ package coupon
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
-	"goframe-shop/internal/model/entity"
 	"goframe-shop/internal/service"
 )
 
@@ -51,12 +51,9 @@ func (s *sCoupon) Update(ctx context.Context, in model.CouponUpdateInput) error 
 
 // GetList 查询分类列表
 func (s *sCoupon) GetList(ctx context.Context, in model.CouponGetListInput) (out *model.CouponGetListOutput, err error) {
-	var (
-		m = dao.CouponInfo.Ctx(ctx)
-	)
-	out = &model.CouponGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.CouponInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
@@ -64,19 +61,11 @@ func (s *sCoupon) GetList(ctx context.Context, in model.CouponGetListInput) (out
 	// 排序方式
 	listModel = listModel.OrderDesc(dao.CouponInfo.Columns().Price)
 
-	// 执行查询
-	var list []*entity.CouponInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
 	out.Total, err = m.Count()
-	if err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
+
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}

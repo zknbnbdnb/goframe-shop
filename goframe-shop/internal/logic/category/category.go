@@ -3,9 +3,9 @@ package category
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
-	"goframe-shop/internal/model/entity"
 	"goframe-shop/internal/service"
 )
 
@@ -51,12 +51,9 @@ func (s *sCategory) Update(ctx context.Context, in model.CategoryUpdateInput) er
 
 // GetList 查询分类列表
 func (s *sCategory) GetList(ctx context.Context, in model.CategoryGetListInput) (out *model.CategoryGetListOutput, err error) {
-	var (
-		m = dao.CategoryInfo.Ctx(ctx)
-	)
-	out = &model.CategoryGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.CategoryInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
@@ -64,19 +61,11 @@ func (s *sCategory) GetList(ctx context.Context, in model.CategoryGetListInput) 
 	// 排序方式
 	listModel = listModel.OrderDesc(dao.CategoryInfo.Columns().Sort)
 
-	// 执行查询
-	var list []*entity.CategoryInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
 	out.Total, err = m.Count()
-	if err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
+
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}

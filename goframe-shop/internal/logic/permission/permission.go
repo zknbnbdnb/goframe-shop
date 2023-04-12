@@ -3,9 +3,9 @@ package permission
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
-	"goframe-shop/internal/model/entity"
 	"goframe-shop/internal/service"
 )
 
@@ -52,34 +52,21 @@ func (s *sPermission) Update(ctx context.Context, in model.PermissionUpdateInput
 
 // GetList 查询内容列表
 func (s *sPermission) GetList(ctx context.Context, in model.PermissionGetListInput) (out *model.PermissionGetListOutput, err error) {
-	var (
-		m = dao.PermissionInfo.Ctx(ctx)
-	)
-	out = &model.PermissionGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.PermissionInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
 	listModel := m.Page(in.Page, in.Size)
 
-	// 执行查询
-	var list []*entity.PermissionInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
 	out.Total, err = m.Count()
-	if err != nil {
-		return out, err
-	}
-	// Permission todo
-	if err := listModel.Scan(&out.List); err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
 
+	if err := listModel.Scan(&out.List); err != nil {
+		return out, err
+	}
 	return
 }

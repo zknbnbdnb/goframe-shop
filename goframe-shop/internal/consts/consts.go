@@ -10,23 +10,30 @@ const (
 	FileMaxUploadCountMinute = 10                   // 同一用户1分钟之内最大上传数量
 	GTokenBackendPrefix      = "Admin:"             // gtoken登陆 管理后台 前缀区分
 	GTokenFrontendPrefix     = "User:"              // gtoken登陆 前台 前缀区分
-	CtxAdminId               = "CtxAdminId"         // for admin
-	CtxAdminName             = "CtxAdminName"
-	CtxAdminIsAdmin          = "CtxAdminIsAdmin"
-	CtxAdminRoleIds          = "CtxAdminRoleIds"
-	CtxUserId                = "CtxUserId"
-	CtxUserName              = "CtxUserName" // for user
-	CtxUserAvatar            = "CtxUserAvatar"
-	CtxUserSex               = "CtxUserSex"
-	CtxUserSign              = "CtxUserSign"
-	CtxUserStatus            = "CtxUserStatus"
-	CodeMissingParameterMsg  = "缺少参数"
-	CacheModeRedis           = 2
-	BackendServerName        = "goFrame-shop"
-	BackendMultiLogin        = true
-	FrontendMultiLogin       = false
-	GTokenExpireIn           = 86400 //10 * 24 * 60 * 60单位秒
-	TokenType                = "Bearer"
-	ErrorSecretAnswerMsg     = "密保答案错误"
-	ErrLoginFailMsg          = "登录失败, 账号或密码错误."
+	// for admin
+	CtxAdminId      = "CtxAdminId" // for admin
+	CtxAdminName    = "CtxAdminName"
+	CtxAdminIsAdmin = "CtxAdminIsAdmin"
+	CtxAdminRoleIds = "CtxAdminRoleIds"
+	// for user
+	CtxUserId     = "CtxUserId"
+	CtxUserName   = "CtxUserName" // for user
+	CtxUserAvatar = "CtxUserAvatar"
+	CtxUserSex    = "CtxUserSex"
+	CtxUserSign   = "CtxUserSign"
+	CtxUserStatus = "CtxUserStatus"
+	// for gtoken
+	CacheModeRedis     = 2
+	BackendServerName  = "goFrame-shop"
+	BackendMultiLogin  = true
+	FrontendMultiLogin = false
+	GTokenExpireIn     = 86400 //10 * 24 * 60 * 60单位秒
+	TokenType          = "Bearer"
+	// for error
+	CodeMissingParameterMsg = "缺少参数"
+	ErrorSecretAnswerMsg    = "密保答案错误"
+	ErrLoginFailMsg         = "登录失败, 账号或密码错误."
+	// for collection
+	CollectionTypeGoods   = 1
+	CollectionTypeArticle = 2
 )

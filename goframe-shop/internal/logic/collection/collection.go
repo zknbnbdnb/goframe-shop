@@ -44,3 +44,51 @@ func (s *sCollection) Delete(ctx context.Context, in model.CollectionDeleteInput
 		return model.CollectionDeleteOutput{Id: gconv.Uint(id)}, nil
 	}
 }
+
+func (s *sCollection) GetList(ctx context.Context, in model.CollectionListInput) (out *model.CollectionListOutput, err error) {
+	m := dao.CollectionInfo.Ctx(ctx)
+	err = gconv.Struct(in, &out)
+	if err != nil {
+		return out, err
+	}
+
+	// 分页查询
+	listModel := m.Page(in.Page, in.Size)
+
+	if in.Type != 0 {
+		listModel = listModel.Ctx(ctx).Where(dao.CollectionInfo.Columns().Type, in.Type)
+	}
+
+	/*
+		//var list []*entity.CollectionInfo
+		//if err := listModel.WithAll().Scan(&list); err != nil {
+		//	return out, err
+		//}
+		//// 没有数据
+		//if len(list) == 0 {
+		//	return out, nil
+		//} //这段代码和上段代码就是做一个事情,查询列表长度是否为空,冗余了所以要优化
+	*/
+	out.Total, err = listModel.Count()
+	if err != nil || out.Total == 0 {
+		return out, err
+	}
+
+	if in.Type == consts.CollectionTypeGoods {
+		err = listModel.With(model.GoodsItem{}).Scan(&out.List)
+		if err != nil {
+			return out, err
+		}
+	} else if in.Type == consts.CollectionTypeArticle {
+		err = listModel.With(model.ArticleItem{}).Scan(&out.List)
+		if err != nil {
+			return out, err
+		}
+	} else {
+		err = listModel.WithAll().Scan(&out.List)
+		if err != nil {
+			return out, err
+		}
+	}
+	return
+}

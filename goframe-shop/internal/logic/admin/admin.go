@@ -5,6 +5,7 @@ import (
 	"github.com/gogf/gf/v2/database/gdb"
 	"github.com/gogf/gf/v2/encoding/ghtml"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"github.com/gogf/gf/v2/util/grand"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
@@ -79,35 +80,23 @@ func (s *sAdmin) Update(ctx context.Context, in model.AdminUpdateInput) error {
 
 // GetList 查询内容列表
 func (s *sAdmin) GetList(ctx context.Context, in model.AdminGetListInput) (out *model.AdminGetListOutput, err error) {
-	var (
-		m = dao.AdminInfo.Ctx(ctx)
-	)
-	out = &model.AdminGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.AdminInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
 	listModel := m.Page(in.Page, in.Size)
 
 	// 执行查询
-	var list []*entity.AdminInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
 	out.Total, err = m.Count()
-	if err != nil {
-		return out, err
-	}
-	// Admin todo
-	if err := listModel.Scan(&out.List); err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
 
+	if err := listModel.Scan(&out.List); err != nil {
+		return out, err
+	}
 	return
 }
 

@@ -3,9 +3,9 @@ package goods
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
-	"goframe-shop/internal/model/entity"
 	"goframe-shop/internal/service"
 )
 
@@ -51,28 +51,16 @@ func (s *sGoods) Update(ctx context.Context, in model.GoodsUpdateInput) error {
 
 // GetList 查询分类列表
 func (s *sGoods) GetList(ctx context.Context, in model.GoodsGetListInput) (out *model.GoodsGetListOutput, err error) {
-	var (
-		m = dao.GoodsInfo.Ctx(ctx)
-	)
-	out = &model.GoodsGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.GoodsInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
 	listModel := m.Page(in.Page, in.Size)
 
-	// 执行查询
-	var list []*entity.GoodsInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
 	out.Total, err = m.Count()
-	if err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
 	if err := listModel.Scan(&out.List); err != nil {

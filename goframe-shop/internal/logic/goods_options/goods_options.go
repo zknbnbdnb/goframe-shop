@@ -3,9 +3,9 @@ package goods_options
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
-	"goframe-shop/internal/model/entity"
 	"goframe-shop/internal/service"
 )
 
@@ -51,30 +51,19 @@ func (s *sGoodsOptions) Update(ctx context.Context, in model.GoodsOptionsUpdateI
 
 // GetList 查询分类列表
 func (s *sGoodsOptions) GetList(ctx context.Context, in model.GoodsOptionsGetListInput) (out *model.GoodsOptionsGetListOutput, err error) {
-	var (
-		m = dao.GoodsOptionsInfo.Ctx(ctx)
-	)
-	out = &model.GoodsOptionsGetListOutput{
-		Page: in.Page,
-		Size: in.Size,
+	m := dao.GoodsOptionsInfo.Ctx(ctx)
+	if err = gconv.Struct(in, &out); err != nil {
+		return out, err
 	}
 
 	// 分页查询
 	listModel := m.Page(in.Page, in.Size)
 
-	// 执行查询
-	var list []*entity.GoodsOptionsInfo
-	if err := listModel.Scan(&list); err != nil {
-		return out, err
-	}
-	// 没有数据
-	if len(list) == 0 {
-		return out, nil
-	}
 	out.Total, err = m.Count()
-	if err != nil {
+	if err != nil || out.Total == 0 {
 		return out, err
 	}
+
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}
