@@ -32,3 +32,26 @@ Stack:
 2023-04-13 11:56:48.685 [DEBU] {164dccf061625517cd24c30c256a2005} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `praise_info` WHERE `type`=1
 2023-04-13 11:56:48.686 [DEBU] {164dccf061625517cd24c30c256a2005} [  1 ms] [default] [shop] [rows:3  ] SELECT `id`,`user_id`,`type`,`object_id`,`created_at`,`updated_at` FROM `praise_info` WHERE `type`=1 LIMIT 0,20
 2023-04-13 11:56:48.687 [DEBU] {164dccf061625517cd24c30c256a2005} [  1 ms] [default] [shop] [rows:2  ] SELECT `id`,`name`,`pic_url`,`price` FROM `goods_info` WHERE (`id` IN(1,4,5)) AND `deleted_at` IS NULL
+2023-04-13 17:05:04.531 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  9 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `comment_info`
+2023-04-13 17:05:04.532 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `comment_info` WHERE `deleted_at` IS NULL
+2023-04-13 17:05:04.533 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  1 ms] [default] [shop] [rows:5  ] SELECT `id`,`parent_id`,`user_id`,`object_id`,`type`,`content`,`created_at`,`updated_at`,`deleted_at` FROM `comment_info` WHERE `deleted_at` IS NULL LIMIT 0,20
+2023-04-13 17:05:04.536 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  3 ms] [default] [shop] [rows:11 ] SHOW FULL COLUMNS FROM `article_info`
+2023-04-13 17:05:04.536 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  0 ms] [default] [shop] [rows:0  ] SELECT `id`,`title`,`pic_url`,`desc` FROM `article_info` WHERE (`id` IN(1)) AND `deleted_at` IS NULL
+2023-04-13 17:05:04.538 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  1 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `goods_info`
+2023-04-13 17:05:04.538 [DEBU] {52291a4734735517ff081c0119f1aaa8} [  0 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`pic_url`,`price` FROM `goods_info` WHERE (`id` IN(1)) AND `deleted_at` IS NULL
+2023-04-13 17:05:18.499 [DEBU] {190214973773551700091c01e6be0982} [ 11 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `comment_info` WHERE (`type`=1) AND `deleted_at` IS NULL
+2023-04-13 17:05:18.500 [DEBU] {190214973773551700091c01e6be0982} [  1 ms] [default] [shop] [rows:2  ] SELECT `id`,`parent_id`,`user_id`,`object_id`,`type`,`content`,`created_at`,`updated_at`,`deleted_at` FROM `comment_info` WHERE (`type`=1) AND `deleted_at` IS NULL LIMIT 0,20
+2023-04-13 17:05:18.501 [DEBU] {190214973773551700091c01e6be0982} [  0 ms] [default] [shop] [rows:1  ] SELECT `id`,`name`,`pic_url`,`price` FROM `goods_info` WHERE (`id` IN(1)) AND `deleted_at` IS NULL
+2023-04-13 17:05:25.976 [DEBU] {b22158553973551701091c011abe9c34} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `comment_info` WHERE (`type`=2) AND `deleted_at` IS NULL
+2023-04-13 17:05:25.976 [DEBU] {b22158553973551701091c011abe9c34} [  0 ms] [default] [shop] [rows:3  ] SELECT `id`,`parent_id`,`user_id`,`object_id`,`type`,`content`,`created_at`,`updated_at`,`deleted_at` FROM `comment_info` WHERE (`type`=2) AND `deleted_at` IS NULL LIMIT 0,20
+2023-04-13 17:05:25.977 [DEBU] {b22158553973551701091c011abe9c34} [  0 ms] [default] [shop] [rows:0  ] SELECT `id`,`title`,`pic_url`,`desc` FROM `article_info` WHERE (`id` IN(1)) AND `deleted_at` IS NULL
+2023-04-13 17:07:22.345 [DEBU] {86be906c5473551702091c01b51e1fa4} [ 14 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `comment_info` WHERE (`type`=2) AND `deleted_at` IS NULL
+2023-04-13 17:07:22.346 [DEBU] {86be906c5473551702091c01b51e1fa4} [  1 ms] [default] [shop] [rows:3  ] SELECT `id`,`parent_id`,`user_id`,`object_id`,`type`,`content`,`created_at`,`updated_at`,`deleted_at` FROM `comment_info` WHERE (`type`=2) AND `deleted_at` IS NULL LIMIT 0,20
+2023-04-13 17:07:22.347 [DEBU] {86be906c5473551702091c01b51e1fa4} [  0 ms] [default] [shop] [rows:1  ] SELECT `id`,`title`,`pic_url`,`desc` FROM `article_info` WHERE (`id` IN(1)) AND `deleted_at` IS NULL
+2023-04-13 17:10:32.943 [DEBU] {e70f31cd80735517b5a9a567adf299a9} [ 14 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `comment_info`
+2023-04-13 17:10:32.946 [DEBU] {e70f31cd80735517b5a9a567adf299a9} [  2 ms] [default] [shop] [rows:1  ] INSERT INTO `comment_info`(`user_id`,`updated_at`,`object_id`,`type`,`parent_id`,`content`,`created_at`) VALUES(5,'2023-04-13 17:10:32',2,1,0,'真好喝这个饮料','2023-04-13 17:10:32') 
+2023-04-13 17:11:26.776 [DEBU] {032fbe528d7355177a5470243bac886a} [ 14 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `comment_info`
+2023-04-13 17:11:26.779 [DEBU] {032fbe528d7355177a5470243bac886a} [  3 ms] [default] [shop] [rows:1  ] INSERT INTO `comment_info`(`created_at`,`user_id`,`content`,`updated_at`,`object_id`,`type`,`parent_id`) VALUES('2023-04-13 17:11:26',5,'真好的产品','2023-04-13 17:11:26',4,1,0) 
+2023-04-13 17:24:02.934 [DEBU] {2b8361643d745517a4b0795a43c6ed4f} [ 14 ms] [default] [shop] [rows:9  ] SHOW FULL COLUMNS FROM `comment_info`
+2023-04-13 17:24:02.936 [DEBU] {2b8361643d745517a4b0795a43c6ed4f} [  1 ms] [default] [shop] [rows:0  ] UPDATE `comment_info` SET `deleted_at`='2023-04-13 17:24:02' WHERE (`id`=7 AND `user_id`=5) AND `deleted_at` IS NULL
+2023-04-13 17:24:27.936 [DEBU] {c25ec73643745517a5b0795ab73d3b93} [ 12 ms] [default] [shop] [rows:1  ] UPDATE `comment_info` SET `deleted_at`='2023-04-13 17:24:27' WHERE (`id`=7 AND `user_id`=5) AND `deleted_at` IS NULL

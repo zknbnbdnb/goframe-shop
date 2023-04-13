@@ -10,6 +10,7 @@ import (
 	_ "goframe-shop/internal/logic/bizctx"
 	_ "goframe-shop/internal/logic/category"
 	_ "goframe-shop/internal/logic/collection"
+	_ "goframe-shop/internal/logic/comment"
 	_ "goframe-shop/internal/logic/coupon"
 	_ "goframe-shop/internal/logic/data"
 	_ "goframe-shop/internal/logic/file"

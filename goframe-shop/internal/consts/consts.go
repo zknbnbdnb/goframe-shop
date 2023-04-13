@@ -39,4 +39,7 @@ const (
 	// for praise
 	PraiseTypeGoods   = 1
 	PraiseTypeArticle = 2
+	// fot comment
+	CommentTypeGoods   = 1
+	CommentTypeArticle = 2
 )

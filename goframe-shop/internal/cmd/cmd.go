@@ -90,6 +90,7 @@ var (
 						controller.User.UpdatePassword, // 修改用户密码
 						controller.Collection,          // 收藏管理
 						controller.Praise,              // 点赞管理
+						controller.Comment,             // 评论管理
 					)
 				})
 
