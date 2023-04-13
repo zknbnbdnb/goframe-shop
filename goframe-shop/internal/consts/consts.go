@@ -36,4 +36,7 @@ const (
 	// for collection
 	CollectionTypeGoods   = 1
 	CollectionTypeArticle = 2
+	// for praise
+	PraiseTypeGoods   = 1
+	PraiseTypeArticle = 2
 )

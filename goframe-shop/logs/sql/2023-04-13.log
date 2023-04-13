@@ -1,0 +1,34 @@
+2023-04-13 11:53:22.551 [DEBU] {37b5b4f13162551778396517d43e46de} [  6 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `collection_info`
+2023-04-13 11:53:22.557 [DEBU] {37b5b4f13162551778396517d43e46de} [  5 ms] [default] [shop] [rows:1  ] INSERT INTO `collection_info`(`created_at`,`user_id`,`updated_at`,`object_id`,`type`) VALUES('2023-04-13 11:53:22',5,'2023-04-13 11:53:22',4,2) 
+2023-04-13 11:54:42.000 [DEBU] {36d4fc704462551779396517270088c3} [  4 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `praise_info`
+2023-04-13 11:54:42.003 [DEBU] {36d4fc704462551779396517270088c3} [  2 ms] [default] [shop] [rows:1  ] INSERT INTO `praise_info`(`object_id`,`type`,`created_at`,`user_id`,`updated_at`) VALUES(4,2,'2023-04-13 11:54:41',5,'2023-04-13 11:54:41') 
+2023-04-13 11:55:23.536 [DEBU] {db38a81c4e625517c724c30c7415a75d} [ 14 ms] [default] [shop] [rows:6  ] SHOW FULL COLUMNS FROM `praise_info`
+2023-04-13 11:55:23.539 [ERRO] {db38a81c4e625517c724c30c7415a75d} [  2 ms] [default] [shop] [rows:0  ] INSERT INTO `praise_info`(`type`,`created_at`,`user_id`,`updated_at`,`object_id`) VALUES(2,'2023-04-13 11:55:23',5,'2023-04-13 11:55:23',4) 
+Error: Error 1062: Duplicate entry '5-2-4' for key 'praise_info.unique_index'
+Stack:
+1.  goframe-shop/internal/logic/praise.(*sPraise).Add
+    /home/zk/Go_project/goframe-shop/internal/logic/praise/praise.go:25
+2.  goframe-shop/internal/controller.(*cPraise).Add
+    /home/zk/Go_project/goframe-shop/internal/controller/praise.go:22
+3.  goframe-shop/internal/cmd.authAfterFuncFrontend
+    /home/zk/Go_project/goframe-shop/internal/cmd/loginAuth.go:231
+4.  goframe-shop/internal/logic/middleware.(*sMiddleware).ResponseHandler
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:29
+5.  goframe-shop/internal/logic/middleware.(*sMiddleware).Ctx
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:84
+6.  goframe-shop/internal/logic/middleware.(*sMiddleware).CORS
+    /home/zk/Go_project/goframe-shop/internal/logic/middleware/middleware.go:89
+
+2023-04-13 11:55:33.111 [DEBU] {cdd88e5750625517c824c30c1282cf84} [ 12 ms] [default] [shop] [rows:1  ] INSERT INTO `praise_info`(`created_at`,`user_id`,`updated_at`,`object_id`,`type`) VALUES('2023-04-13 11:55:33',5,'2023-04-13 11:55:33',4,1) 
+2023-04-13 11:55:51.107 [DEBU] {49416b8854625517c924c30c2b8b3a66} [  9 ms] [default] [shop] [rows:1  ] INSERT INTO `praise_info`(`object_id`,`updated_at`,`created_at`,`type`,`user_id`) VALUES(5,'2023-04-13 11:55:51','2023-04-13 11:55:51',1,5) 
+2023-04-13 11:55:54.259 [DEBU] {a599674455625517ca24c30c2b46b28c} [  6 ms] [default] [shop] [rows:1  ] INSERT INTO `praise_info`(`updated_at`,`object_id`,`type`,`created_at`,`user_id`) VALUES('2023-04-13 11:55:54',6,1,'2023-04-13 11:55:54',5) 
+2023-04-13 11:56:21.063 [DEBU] {e232b2815b625517cb24c30cd5d884ba} [ 13 ms] [default] [shop] [rows:1  ] DELETE FROM `praise_info` WHERE `id`=13
+2023-04-13 11:56:42.849 [DEBU] {867fd49460625517cc24c30c675992af} [  3 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `praise_info`
+2023-04-13 11:56:42.850 [DEBU] {867fd49460625517cc24c30c675992af} [  1 ms] [default] [shop] [rows:4  ] SELECT `id`,`user_id`,`type`,`object_id`,`created_at`,`updated_at` FROM `praise_info` LIMIT 0,20
+2023-04-13 11:56:42.853 [DEBU] {867fd49460625517cc24c30c675992af} [  3 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `goods_info`
+2023-04-13 11:56:42.855 [DEBU] {867fd49460625517cc24c30c675992af} [  2 ms] [default] [shop] [rows:2  ] SELECT `id`,`name`,`pic_url`,`price` FROM `goods_info` WHERE (`id` IN(1,4,5)) AND `deleted_at` IS NULL
+2023-04-13 11:56:42.858 [DEBU] {867fd49460625517cc24c30c675992af} [  2 ms] [default] [shop] [rows:11 ] SHOW FULL COLUMNS FROM `article_info`
+2023-04-13 11:56:42.860 [DEBU] {867fd49460625517cc24c30c675992af} [  2 ms] [default] [shop] [rows:2  ] SELECT `id`,`title`,`pic_url`,`desc` FROM `article_info` WHERE (`id` IN(1,4,5)) AND `deleted_at` IS NULL
+2023-04-13 11:56:48.685 [DEBU] {164dccf061625517cd24c30c256a2005} [  1 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `praise_info` WHERE `type`=1
+2023-04-13 11:56:48.686 [DEBU] {164dccf061625517cd24c30c256a2005} [  1 ms] [default] [shop] [rows:3  ] SELECT `id`,`user_id`,`type`,`object_id`,`created_at`,`updated_at` FROM `praise_info` WHERE `type`=1 LIMIT 0,20
+2023-04-13 11:56:48.687 [DEBU] {164dccf061625517cd24c30c256a2005} [  1 ms] [default] [shop] [rows:2  ] SELECT `id`,`name`,`pic_url`,`price` FROM `goods_info` WHERE (`id` IN(1,4,5)) AND `deleted_at` IS NULL

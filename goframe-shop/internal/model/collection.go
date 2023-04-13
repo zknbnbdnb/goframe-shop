@@ -61,3 +61,13 @@ type ArticleItem struct {
 	PicUrl string `json:"pic_url" description:"文章图片"`
 	Desc   string `json:"desc" description:"文章描述"`
 }
+
+type CollectionCheckInput struct {
+	UserId   uint
+	ObjectId int
+	Type     uint8
+}
+
+type CollectionCheckOutput struct {
+	IsCollect bool
+}
