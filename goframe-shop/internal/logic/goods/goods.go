@@ -68,3 +68,12 @@ func (s *sGoods) GetList(ctx context.Context, in model.GoodsGetListInput) (out *
 	}
 	return
 }
+
+// Detail 查询分类详情
+func (s *sGoods) Detail(ctx context.Context, in model.GoodsDetailInput) (out *model.GoodsDetailOutput, err error) {
+	err = dao.GoodsInfo.Ctx(ctx).WithAll().WherePri(in.Id).Scan(&out)
+	if err != nil {
+		return out, err
+	}
+	return
+}

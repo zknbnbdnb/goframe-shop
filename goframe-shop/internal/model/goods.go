@@ -1,6 +1,9 @@
 package model
 
-import "goframe-shop/internal/model/entity"
+import (
+	"goframe-shop/internal/model/do"
+	"goframe-shop/internal/model/entity"
+)
 
 // GoodsCreateUpdateBase 创建/修改内容基类
 type GoodsCreateUpdateBase struct {
@@ -71,4 +74,17 @@ type GoodsGetListOutputItem struct {
 
 type GoodsSearchOutputItem struct {
 	GoodsGetListOutputItem
+}
+
+// GoodsDetailInput 获取内容详情
+type GoodsDetailInput struct {
+	Id uint
+}
+
+// GoodsDetailOutput 获取内容详情返回结果
+type GoodsDetailOutput struct {
+	do.GoodsInfo
+	Options   []do.GoodsOptionsInfo `orm:"with:goods_id=id"`
+	Comments  []do.CommentInfo      `orm:"with:Object_id=id" ,where:"type=1"`
+	IsComment bool
 }

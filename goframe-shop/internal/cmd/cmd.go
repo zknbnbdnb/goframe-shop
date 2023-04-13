@@ -78,6 +78,7 @@ var (
 				// 不需要登录的路由
 				group.Bind(
 					controller.User.Register, // 用户注册
+					controller.Goods,         // 商品管理
 				)
 				// 需要登录的路由
 				group.Group("/", func(group *ghttp.RouterGroup) {
