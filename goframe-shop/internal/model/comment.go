@@ -1,6 +1,7 @@
 package model
 
 import (
+	"goframe-shop/internal/model/do"
 	"goframe-shop/internal/model/entity"
 )
 
@@ -52,4 +53,9 @@ type CommentCheckInput struct {
 
 type CommentCheckOutput struct {
 	IsCollect bool
+}
+
+type CommentBase struct {
+	do.CommentInfo
+	User UserInfoBase `json:"user" orm:"with:id=user_id"` // 通过orm:"with:id=user_id"指定外键静态关联
 }

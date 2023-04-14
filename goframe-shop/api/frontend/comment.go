@@ -42,10 +42,11 @@ type CommentListRes struct {
 }
 
 type CommentListItem struct {
-	Id       uint        `json:"id" v:"required#id不能为空"`
-	UserId   uint        `json:"user_id"    description:"用户id"`
-	ObjectId int         `json:"objectId"  description:"对象id"`
-	Type     uint8       `json:"type"      description:"评论类型：1商品 2文章"`
-	Goods    interface{} `json:"goods"`
-	Article  interface{} `json:"article"`
+	Id       uint         `json:"id" v:"required#id不能为空"`
+	UserId   uint         `json:"user_id"    description:"用户id"`
+	User     UserInfoBase `json:"user" description:"用户信息"`
+	ObjectId int          `json:"objectId"  description:"对象id"`
+	Type     uint8        `json:"type"      description:"评论类型：1商品 2文章"`
+	Goods    interface{}  `json:"goods"`
+	Article  interface{}  `json:"article"`
 }

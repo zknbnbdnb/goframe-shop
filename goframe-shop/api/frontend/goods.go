@@ -30,7 +30,6 @@ type GoodsDetailReq struct {
 
 type GoodsDetailRes struct {
 	entity.GoodsInfo
-	Options   interface{}
-	Comments  interface{}
-	IsComment bool
+	Options  interface{} `json:"options" description:"商品规格"`
+	Comments interface{} `json:"comments" description:"商品评论"`
 }

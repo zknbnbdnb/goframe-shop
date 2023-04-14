@@ -64,7 +64,7 @@ type ArticleItem struct {
 
 type CollectionCheckInput struct {
 	UserId   uint
-	ObjectId int
+	ObjectId uint
 	Type     uint8
 }
 

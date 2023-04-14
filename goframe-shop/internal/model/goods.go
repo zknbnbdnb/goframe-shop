@@ -84,7 +84,6 @@ type GoodsDetailInput struct {
 // GoodsDetailOutput 获取内容详情返回结果
 type GoodsDetailOutput struct {
 	do.GoodsInfo
-	Options   []do.GoodsOptionsInfo `orm:"with:goods_id=id"`
-	Comments  []do.CommentInfo      `orm:"with:Object_id=id" ,where:"type=1"`
-	IsComment bool
+	Options  []do.GoodsOptionsInfo `orm:"with:goods_id=id"`
+	Comments []CommentBase         `orm:"with:Object_id=id" ,where:"type=1"`
 }

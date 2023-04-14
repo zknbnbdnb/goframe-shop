@@ -106,7 +106,7 @@ func CollectionCount(ctx context.Context, objectId uint, collectionType uint8) (
 	return
 }
 
-func CollectionCheck(ctx context.Context, in model.CollectionCheckInput) (out *model.CollectionCheckOutput, err error) {
+func CheckIsCollect(ctx context.Context, in model.CollectionCheckInput) (out *model.CollectionCheckOutput, err error) {
 	condition := g.Map{
 		dao.CollectionInfo.Columns().UserId:   ctx.Value(consts.CtxUserId),
 		dao.CollectionInfo.Columns().ObjectId: in.ObjectId,
@@ -116,6 +116,7 @@ func CollectionCheck(ctx context.Context, in model.CollectionCheckInput) (out *m
 	if err != nil {
 		return out, err
 	}
+	print(count)
 	if count > 0 {
 		return &model.CollectionCheckOutput{IsCollect: true}, nil
 	} else {
