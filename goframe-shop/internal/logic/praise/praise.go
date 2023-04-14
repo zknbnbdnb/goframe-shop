@@ -60,16 +60,6 @@ func (s *sPraise) GetList(ctx context.Context, in model.PraiseListInput) (out *m
 		listModel = listModel.Ctx(ctx).Where(dao.PraiseInfo.Columns().Type, in.Type)
 	}
 
-	/*
-		//var list []*entity.PraiseInfo
-		//if err := listModel.WithAll().Scan(&list); err != nil {
-		//	return out, err
-		//}
-		//// 没有数据
-		//if len(list) == 0 {
-		//	return out, nil
-		//} //这段代码和上段代码就是做一个事情,查询列表长度是否为空,冗余了所以要优化
-	*/
 	out.Total, err = listModel.Count()
 	if err != nil || out.Total == 0 {
 		return out, err

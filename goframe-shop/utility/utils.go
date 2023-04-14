@@ -300,3 +300,36 @@ func RandInt(max int) int {
 //日期范围查询
 //whereCondition.Set(dao.UserInfo.Columns.CreatedAt+" >=", gtime.New(req.Date).StartOfDay())
 //whereCondition.Set(dao.UserInfo.Columns.CreatedAt+" <=", gtime.New(req.Date).EndOfDay())
+
+func GetRecent7Date() (dates []string) {
+	gt := gtime.New(time.Now())
+	dates = []string{
+		gt.Format("Y-m-d"),
+		gt.Add(-gtime.D * 1).Format("Y-m-d"),
+		gt.Add(-gtime.D * 2).Format("Y-m-d"),
+		gt.Add(-gtime.D * 3).Format("Y-m-d"),
+		gt.Add(-gtime.D * 4).Format("Y-m-d"),
+		gt.Add(-gtime.D * 5).Format("Y-m-d"),
+		gt.Add(-gtime.D * 6).Format("Y-m-d"),
+	}
+	return
+}
+
+// 获取一周前的日期
+func GetBefore7Date() (date string) {
+	gt := gtime.New(time.Now())
+	date = gt.Add(-gtime.D * 6).Format("Y-m-d")
+	return
+}
+
+func GetOrderNum() (number string) {
+	rand.Seed(time.Now().UnixNano())
+	number = gconv.String(time.Now().UnixNano()) + gconv.String(rand.Intn(1000))
+	return
+}
+
+func GetRefundNum() (number string) {
+	rand.Seed(time.Now().UnixNano())
+	number = "refund" + gconv.String(time.Now().UnixNano()) + gconv.String(rand.Intn(1000))
+	return
+}
