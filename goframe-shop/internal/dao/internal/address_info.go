@@ -22,7 +22,7 @@ type AddressInfoDao struct {
 type AddressInfoColumns struct {
 	Id        string //
 	Name      string //
-	Pid       string //
+	ParentId  string //
 	Status    string //
 	UpdatedAt string //
 }
@@ -31,7 +31,7 @@ type AddressInfoColumns struct {
 var addressInfoColumns = AddressInfoColumns{
 	Id:        "id",
 	Name:      "name",
-	Pid:       "pid",
+	ParentId:  "parent_id",
 	Status:    "status",
 	UpdatedAt: "updated_at",
 }

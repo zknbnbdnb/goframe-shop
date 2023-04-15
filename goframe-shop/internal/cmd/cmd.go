@@ -60,6 +60,7 @@ var (
 						controller.Goods,        // 商品管理
 						controller.GoodsOptions, // 商品规模管理
 						controller.Article,      // 文章管理&CMS
+						controller.Address,      // 地址管理
 					)
 				})
 			})

@@ -22,7 +22,7 @@ type GoodsReq struct {
 	GoodsAddUpdateBase
 }
 type GoodsRes struct {
-	GoodsId int `json:"coupon_id"`
+	GoodsId int `json:"goods_id"`
 }
 
 // GoodsDeleteReq Delete 删除

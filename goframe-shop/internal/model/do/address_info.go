@@ -14,7 +14,7 @@ type AddressInfo struct {
 	g.Meta    `orm:"table:address_info, do:true"`
 	Id        interface{} //
 	Name      interface{} //
-	Pid       interface{} //
+	ParentId  interface{} //
 	Status    interface{} //
 	UpdatedAt *gtime.Time //
 }

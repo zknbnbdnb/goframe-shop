@@ -60,18 +60,18 @@ func loginFuncBackend(r *ghttp.Request) (string, interface{}) {
 	ctx := context.TODO()
 
 	if name == "" || password == "" {
-		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFailMsg))
+		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFaulMsg))
 		r.ExitAll()
 	}
 
 	adminInfo := entity.AdminInfo{}
 	err := dao.AdminInfo.Ctx(ctx).Where(dao.AdminInfo.Columns().Name, name).Scan(&adminInfo)
 	if err != nil {
-		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFailMsg))
+		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFaulMsg))
 		r.ExitAll()
 	}
 	if utility.EncryptPassword(password, adminInfo.UserSalt) != adminInfo.Password {
-		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFailMsg))
+		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFaulMsg))
 		r.ExitAll()
 	}
 
@@ -86,18 +86,18 @@ func loginFuncFrontend(r *ghttp.Request) (string, interface{}) {
 	ctx := context.TODO()
 
 	if name == "" || password == "" {
-		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFailMsg))
+		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFaulMsg))
 		r.ExitAll()
 	}
 
 	userInfo := entity.UserInfo{}
 	err := dao.UserInfo.Ctx(ctx).Where(dao.UserInfo.Columns().Name, name).Scan(&userInfo)
 	if err != nil {
-		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFailMsg))
+		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFaulMsg))
 		r.ExitAll()
 	}
 	if utility.EncryptPassword(password, userInfo.UserSalt) != userInfo.Password {
-		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFailMsg))
+		r.Response.WriteJson(gtoken.Fail(consts.ErrLoginFaulMsg))
 		r.ExitAll()
 	}
 

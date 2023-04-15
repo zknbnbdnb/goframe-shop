@@ -45,7 +45,7 @@ func (s *sUser) UpdatePassword(ctx context.Context, in model.UpdatePasswordInput
 		return out, err
 	}
 	if gconv.String(userInfo.SecretAnswer) != in.SecretAnswer { // 检查密保答案
-		return out, gerror.New(consts.ErrorSecretAnswerMsg)
+		return out, gerror.New(consts.ErrSecretAnswerMsg)
 	}
 	UserSalt := grand.S(10)
 	in.UserSalt = UserSalt
