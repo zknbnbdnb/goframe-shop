@@ -30,12 +30,10 @@ type CouponDeleteRes struct {
 // CouponUpdateReq Update 更新
 type CouponUpdateReq struct {
 	g.Meta `path:"/coupon/update" method:"post" tags:"优惠券" summary:"修改优惠券接口"`
-	Id     uint8 `json:"id"         v:"min:1#请选择需要修改的优惠券" dc:"优惠券Id"`
+	Id     uint `json:"id"         v:"min:1#请选择需要修改的优惠券" dc:"优惠券Id"`
 	CouponAddUpdateBase
 }
-type CouponUpdateRes struct {
-	Id uint8 `json:"id"`
-}
+type CouponUpdateRes struct{}
 
 // CouponGetListCommonReq GetListCommon 获取列表
 type CouponGetListCommonReq struct {

@@ -10,7 +10,7 @@ var Data = cData{}
 
 type cData struct{}
 
-func (c *cData) DataHead(ctx context.Context, req *backend.DataHeadReq) (res *backend.DataHeadRes, err error) {
+func (c *cData) HeadCard(ctx context.Context, req *backend.DataHeadReq) (res *backend.DataHeadRes, err error) {
 	dataHead, err := service.Data().DataHead(ctx)
 	if err != nil {
 		return nil, err
@@ -20,4 +20,17 @@ func (c *cData) DataHead(ctx context.Context, req *backend.DataHeadReq) (res *ba
 		DAU:             dataHead.DAU,
 		ConversionRate:  dataHead.ConversionRate,
 	}, nil
+}
+
+func (c *cData) ECharts(ctx context.Context, req *backend.DataEChartsReq) (res *backend.DataEChartsRes, err error) {
+	dataECharts, err := service.Data().DataECharts(ctx)
+	if err != nil {
+		return res, err
+	}
+	return &backend.DataEChartsRes{
+		OrderTotal:           dataECharts.OrderTotal,
+		SalePriceTotal:       dataECharts.SalePriceTotal,
+		ConsumptionPerPerson: dataECharts.ConsumptionPerPerson,
+		NewOrder:             dataECharts.NewOrder,
+	}, err
 }

@@ -13,6 +13,7 @@ import (
 type (
 	IData interface {
 		DataHead(ctx context.Context) (out *model.DataHeadOutput, err error)
+		DataECharts(ctx context.Context) (out *model.DataEChartsOutput, err error)
 	}
 )
 

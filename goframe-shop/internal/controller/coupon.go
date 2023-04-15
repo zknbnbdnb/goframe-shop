@@ -41,7 +41,7 @@ func (c *cCoupon) Update(ctx context.Context, req *backend.CouponUpdateReq) (res
 	if err != nil {
 		return nil, err
 	}
-	return &backend.CouponUpdateRes{Id: req.Id}, nil
+	return
 }
 
 func (c *cCoupon) List(ctx context.Context, req *backend.CouponGetListCommonReq) (res *backend.CouponGetListCommonRes, err error) {

@@ -28,6 +28,9 @@ type CouponUpdateInput struct {
 	CouponCreateUpdateBase
 }
 
+// CouponUpdateOutput 修改内容返回结果
+type CouponUpdateOutput struct{}
+
 // CouponGetListInput 获取内容列表
 type CouponGetListInput struct {
 	Page int // 分页号码

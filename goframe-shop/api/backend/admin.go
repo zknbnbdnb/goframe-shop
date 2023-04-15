@@ -18,14 +18,14 @@ type AdminRes struct {
 	AdminId int `json:"admin_id"`
 }
 
-// Delete 删除
+// AdminDeleteReq Delete 删除
 type AdminDeleteReq struct {
 	g.Meta `path:"/admin/delete" method:"delete" tags:"管理员" summary:"删除管理员接口"`
 	Id     uint `v:"min:1#请选择需要删除的管理员" dc:"管理员id"`
 }
 type AdminDeleteRes struct{}
 
-// Update 更新
+// AdminUpdateReq Update 更新
 type AdminUpdateReq struct {
 	g.Meta   `path:"/admin/update/{Id}" method:"post" tags:"管理员" summary:"修改管理员接口"`
 	Id       uint   `json:"id"         v:"min:1#请选择需要修改的管理员" dc:"管理员Id"`
@@ -40,8 +40,7 @@ type AdminUpdateRes struct {
 
 type AdminGetListCommonReq struct {
 	g.Meta              `path:"/admin/list" method:"get" tags:"管理员" summary:"管理员列表接口"`
-	Sort                int `json:"sort"   in:"query" dc:"排序类型"`
-	CommonPaginationReq     // 翻页配置
+	CommonPaginationReq // 翻页配置
 }
 type AdminGetListCommonRes struct {
 	// todo 以为要做前后端分离，使用不返回html

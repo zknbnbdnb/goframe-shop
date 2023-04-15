@@ -461,3 +461,10 @@ Stack:
 2023-04-15 21:51:43.497 [DEBU] {fb3a74eb012056171adc30403d7b5020} [ 10 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `address_info`
 2023-04-15 21:51:43.498 [DEBU] {fb3a74eb012056171adc30403d7b5020} [  0 ms] [default] [shop] [rows:20 ] SELECT `id`,`name`,`parent_id`,`status`,`updated_at` FROM `address_info` LIMIT 0,20
 2023-04-15 21:53:19.737 [DEBU] {0b8b5e53182056171bdc304034c60270} [ 17 ms] [default] [shop] [rows:1  ] UPDATE `address_info` SET `id`=320725,`parent_id`=0,`name`='西南区',`status`=0,`updated_at`='2023-04-15 21:53:19' WHERE `id`=320725
+2023-04-15 22:21:33.800 [DEBU] {6ba5025ba2215617755dfb70da601df0} [ 12 ms] [default] [shop] [rows:15 ] SHOW FULL COLUMNS FROM `order_info`
+2023-04-15 22:21:33.804 [DEBU] {6ba5025ba2215617755dfb70da601df0} [  3 ms] [default] [shop] [rows:1  ] SELECT COUNT(1) FROM `order_info` WHERE (`created_at` BETWEEN '2023-04-15 00:00:00' AND '2023-04-15 23:59:59') AND (id)
+2023-04-15 22:22:10.582 [DEBU] {6cd49552ab215617765dfb702fdef423} [  3 ms] [default] [shop] [rows:1  ] SELECT count(*) total,date_format(created_at,'%Y-%m-%d') today FROM `order_info` WHERE created_at >='2023-04-09' GROUP BY `today`
+2023-04-15 22:22:10.585 [DEBU] {6cd49552ab215617765dfb702fdef423} [  2 ms] [default] [shop] [rows:11 ] SHOW FULL COLUMNS FROM `order_goods_info`
+2023-04-15 22:22:10.588 [DEBU] {6cd49552ab215617765dfb702fdef423} [  3 ms] [default] [shop] [rows:0  ] SELECT sum(actual_price) total,date_format(created_at,'%Y-%m-%d') today FROM `order_goods_info` WHERE created_at >='2023-04-09' GROUP BY `today`
+2023-04-15 22:22:10.589 [DEBU] {6cd49552ab215617765dfb702fdef423} [  0 ms] [default] [shop] [rows:1  ] SELECT count(*) total,date_format(created_at,'%Y-%m-%d') today FROM `order_info` WHERE created_at >='2023-04-09' GROUP BY `today`
+2023-04-15 22:22:10.590 [DEBU] {6cd49552ab215617765dfb702fdef423} [  0 ms] [default] [shop] [rows:1  ] SELECT count(*) total,date_format(created_at,'%Y-%m-%d') today FROM `order_info` WHERE created_at >='2023-04-09' GROUP BY `today`
