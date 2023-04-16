@@ -101,7 +101,8 @@ var (
 						controller.Cart,                // 购物车管理
 						controller.Order.Add,           // 添加订单
 						controller.OrderGoodsComments,  // 订单商品评论
-						frontend.Article,               //文章
+						frontend.Article,               // 文章
+						frontend.Refund,                // 售后
 					)
 				})
 

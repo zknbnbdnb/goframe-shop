@@ -3,6 +3,7 @@ module goframe-shop
 go 1.15
 
 require (
+	github.com/Shopify/sarama v1.38.1
 	github.com/goflyfox/gtoken v1.5.8
 	github.com/gogf/gf-jwt/v2 v2.0.1
 	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.3.3
