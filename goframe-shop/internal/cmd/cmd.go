@@ -98,6 +98,7 @@ var (
 						controller.Collection,          // 收藏管理
 						controller.Praise,              // 点赞管理
 						controller.Comment,             // 评论管理
+						controller.Cart,                // 购物车管理
 						controller.Order.Add,           // 添加订单
 						frontend.Article,               //文章
 					)
