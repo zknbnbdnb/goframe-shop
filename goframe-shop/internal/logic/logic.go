@@ -21,6 +21,7 @@ import (
 	_ "goframe-shop/internal/logic/login"
 	_ "goframe-shop/internal/logic/middleware"
 	_ "goframe-shop/internal/logic/order"
+	_ "goframe-shop/internal/logic/order_goods_comments"
 	_ "goframe-shop/internal/logic/permission"
 	_ "goframe-shop/internal/logic/position"
 	_ "goframe-shop/internal/logic/praise"

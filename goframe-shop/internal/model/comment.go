@@ -1,8 +1,8 @@
 package model
 
 import (
+	"github.com/gogf/gf/v2/os/gtime"
 	"goframe-shop/internal/model/do"
-	"goframe-shop/internal/model/entity"
 )
 
 type CommentAddInput struct {
@@ -40,19 +40,16 @@ type CommentListOutput struct {
 }
 
 type CommentListOutputItem struct {
-	entity.CommentInfo
-	Goods   GoodsItem   `json:"goods" orm:"with:id=object_id"`   // 通过orm:"with:id=object_id"指定外键静态关联
-	Article ArticleItem `json:"article" orm:"with:id=object_id"` // 通过orm:"with:id=object_id"指定外键静态关联
-}
-
-type CommentCheckInput struct {
-	UserId   uint
-	ObjectId int
-	Type     uint8
-}
-
-type CommentCheckOutput struct {
-	IsCollect bool
+	Id        int
+	UserId    int
+	ObjectId  int
+	Type      int
+	ParentId  uint
+	Content   string
+	Goods     GoodsItem   `json:"goods" orm:"with:id=object_id"`
+	Article   ArticleItem `json:"article" orm:"with:id=object_id"`
+	CreatedAt *gtime.Time
+	UpdatedAt *gtime.Time
 }
 
 type CommentBase struct {

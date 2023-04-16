@@ -12,7 +12,7 @@ import (
 type AddressInfo struct {
 	Id        int         `json:"id"        description:""`
 	Name      string      `json:"name"      description:""`
-	ParentId  int         `json:"parentId"  description:""`
+	Pid       int         `json:"pid"       description:""`
 	Status    int         `json:"status"    description:""`
 	UpdatedAt *gtime.Time `json:"updatedAt" description:""`
 }

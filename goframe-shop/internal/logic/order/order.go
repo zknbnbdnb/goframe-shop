@@ -82,7 +82,7 @@ func (s *sOrder) List(ctx context.Context, in model.OrderListInput) (out *model.
 	//3. 分页查询
 	listModel := m.Page(in.Page, in.Size)
 	//4. 再查询count，判断有无数据
-	out.Total, err = listModel.Count()
+	out.Total, err = m.Count()
 	if err != nil || out.Total == 0 {
 		return out, err
 	}
@@ -148,6 +148,5 @@ func (s *sOrder) orderListCondition(in model.OrderListInput) *gmap.Map {
 
 func (s *sOrder) Detail(ctx context.Context, in model.OrderDetailInput) (out *model.OrderDetailOutput, err error) {
 	err = dao.OrderInfo.Ctx(ctx).WithAll().WherePri(in.Id).Scan(&out)
-
 	return
 }

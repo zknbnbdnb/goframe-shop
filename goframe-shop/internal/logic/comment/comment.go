@@ -78,10 +78,11 @@ func (s *sComment) GetList(ctx context.Context, in model.CommentListInput) (out 
 	return
 }
 
-func CommentCount(ctx context.Context, objectId uint, commentType uint8) (count int, err error) {
+// 抽取获得收藏数量的方法 for 商品详情&文章详情
+func CommentCount(ctx context.Context, objectId uint, collectionType uint8) (count int, err error) {
 	condition := g.Map{
 		dao.CommentInfo.Columns().ObjectId: objectId,
-		dao.CommentInfo.Columns().Type:     commentType,
+		dao.CommentInfo.Columns().Type:     collectionType,
 	}
 	count, err = dao.CommentInfo.Ctx(ctx).Where(condition).Count()
 	if err != nil {
@@ -90,7 +91,8 @@ func CommentCount(ctx context.Context, objectId uint, commentType uint8) (count 
 	return
 }
 
-func CommentCheck(ctx context.Context, in model.CommentCheckInput) (out *model.CommentCheckOutput, err error) {
+// 抽取方法 判断当前用户是否收藏 for 商品详情&文章详情
+func CheckIsComment(ctx context.Context, in model.CheckIsCollectInput) (bool, error) {
 	condition := g.Map{
 		dao.CommentInfo.Columns().UserId:   ctx.Value(consts.CtxUserId),
 		dao.CommentInfo.Columns().ObjectId: in.ObjectId,
@@ -98,11 +100,11 @@ func CommentCheck(ctx context.Context, in model.CommentCheckInput) (out *model.C
 	}
 	count, err := dao.CommentInfo.Ctx(ctx).Where(condition).Count()
 	if err != nil {
-		return out, err
+		return false, err
 	}
 	if count > 0 {
-		return &model.CommentCheckOutput{IsCollect: true}, nil
+		return true, nil
 	} else {
-		return &model.CommentCheckOutput{IsCollect: false}, nil
+		return false, nil
 	}
 }

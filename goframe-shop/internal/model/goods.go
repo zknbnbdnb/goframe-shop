@@ -1,6 +1,7 @@
 package model
 
 import (
+	"github.com/gogf/gf/v2/frame/g"
 	"goframe-shop/internal/model/do"
 	"goframe-shop/internal/model/entity"
 )
@@ -50,30 +51,8 @@ type GoodsGetListOutput struct {
 	Total int                      `json:"total" description:"数据总数"`
 }
 
-// GoodsSearchInput 搜索列表
-type GoodsSearchInput struct {
-	Key     string // 关键字
-	Type    string // 内容模型
-	GoodsId uint   // 栏目ID
-	Page    int    // 分页号码
-	Size    int    // 分页数量，最大50
-}
-
-// GoodsSearchOutput 搜索列表结果
-type GoodsSearchOutput struct {
-	List  []GoodsSearchOutputItem `json:"list"`  // 列表
-	Stats map[string]int          `json:"stats"` // 搜索统计
-	Page  int                     `json:"page"`  // 分页码
-	Size  int                     `json:"size"`  // 分页数量
-	Total int                     `json:"total"` // 数据总数
-}
-
 type GoodsGetListOutputItem struct {
 	entity.GoodsInfo // todo 字段长直接使用这个
-}
-
-type GoodsSearchOutputItem struct {
-	GoodsGetListOutputItem
 }
 
 // GoodsDetailInput 获取内容详情
@@ -84,6 +63,17 @@ type GoodsDetailInput struct {
 // GoodsDetailOutput 获取内容详情返回结果
 type GoodsDetailOutput struct {
 	do.GoodsInfo
-	Options  []do.GoodsOptionsInfo `orm:"with:goods_id=id"`
-	Comments []CommentBase         `orm:"with:Object_id=id" ,where:"type=1"`
+	Options  []*do.GoodsOptionsInfo `orm:"with:goods_id=id"` //规格 sku
+	Comments []*CommentBase         `orm:"with:object_id=id, where:type=1"`
+}
+
+type BaseGoodsColumns struct {
+	g.Meta     `orm:"table:goods_info"`
+	Id         string `json:"id"`
+	Name       string `json:"name"`
+	Price      int    `json:"price"`
+	Brand      string `json:"brand"`
+	Tags       string `json:"tags"`
+	PicUrl     string `json:"pic_url"`
+	DetailInfo string `json:"detail_info"`
 }

@@ -3,7 +3,6 @@ package goods
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gogf/gf/v2/util/gconv"
 	"goframe-shop/internal/dao"
 	"goframe-shop/internal/model"
 	"goframe-shop/internal/service"
@@ -51,18 +50,23 @@ func (s *sGoods) Update(ctx context.Context, in model.GoodsUpdateInput) error {
 
 // GetList 查询分类列表
 func (s *sGoods) GetList(ctx context.Context, in model.GoodsGetListInput) (out *model.GoodsGetListOutput, err error) {
+	// 1.获得*gdb.Model对象，方面后续调用
 	m := dao.GoodsInfo.Ctx(ctx)
-	if err = gconv.Struct(in, &out); err != nil {
-		return out, err
+	// 2. 实例化响应结构体
+	out = &model.GoodsGetListOutput{
+		Page: in.Page,
+		Size: in.Size,
 	}
-
-	// 分页查询
+	// 3. 分页查询
 	listModel := m.Page(in.Page, in.Size)
-
+	// 4. 再查询count，判断有无数据
 	out.Total, err = m.Count()
 	if err != nil || out.Total == 0 {
 		return out, err
 	}
+	//5. 延迟初始化list切片 确定有数据，再按期望大小初始化切片容量
+	out.List = make([]model.GoodsGetListOutputItem, 0, in.Size)
+	//6. 把查询到的结果赋值到响应结构体中
 	if err := listModel.Scan(&out.List); err != nil {
 		return out, err
 	}

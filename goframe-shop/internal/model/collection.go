@@ -62,12 +62,8 @@ type ArticleItem struct {
 	Desc   string `json:"desc" description:"文章描述"`
 }
 
-type CollectionCheckInput struct {
+type CheckIsCollectInput struct {
 	UserId   uint
 	ObjectId uint
 	Type     uint8
-}
-
-type CollectionCheckOutput struct {
-	IsCollect bool
 }

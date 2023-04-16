@@ -100,6 +100,7 @@ var (
 						controller.Comment,             // 评论管理
 						controller.Cart,                // 购物车管理
 						controller.Order.Add,           // 添加订单
+						controller.OrderGoodsComments,  // 订单商品评论
 						frontend.Article,               //文章
 					)
 				})

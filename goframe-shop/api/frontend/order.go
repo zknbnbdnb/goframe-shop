@@ -29,3 +29,20 @@ type OrderAddGoodsInfo struct {
 	CouponPrice    int    `json:"coupon_price"    description:"优惠券金额 单位分"`
 	ActualPrice    int    `json:"actual_price"    description:"实际支付金额 单位分"`
 }
+
+type OrderGoodsInfo struct {
+	Id             int `json:"id,omitempty"`
+	OrderId        int `json:"order_id"`
+	GoodsId        int `json:"goods_id"`
+	GoodsOptionsId int `json:"goods_options_id"`
+	//商品详情
+	GoodsInfo *BaseGoodsColumns
+	//注意：api层不需要做orm关联 关联了也没有意义
+	//GoodsInfo   *BaseGoodsColumns `orm:"with:id=goods_id" json:"goods_info"`
+	Count       int    `json:"count"`
+	Remark      string `json:"remark"`
+	Status      int    `json:"status"`
+	Price       int    `json:"price"`
+	CouponPrice int    `json:"coupon_price"`
+	ActualPrice int    `json:"actual_price"`
+}
