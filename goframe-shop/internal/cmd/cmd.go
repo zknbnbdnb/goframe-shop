@@ -43,15 +43,15 @@ var (
 						panic(err)
 					}
 					group.Bind(
-						controller.Rotation,     // 轮播图
-						controller.Position,     // 手工位
+						controller.Data,         // 数据大屏
+						controller.Role,         // 角色管理
+						controller.Permission,   // 权限管理
 						controller.Admin.Info,   // 查询当前管理员信息
 						controller.Admin.Update, // 管理员 更新
 						controller.Admin.List,   // 管理员 列表
 						controller.Admin.Delete, // 管理员 删除
-						controller.Data,         // 数据大屏
-						controller.Role,         // 角色管理
-						controller.Permission,   // 权限管理
+						controller.Rotation,     // 轮播图
+						controller.Position,     // 手工位
 						controller.File,         // 从0到1实现文件入库
 						controller.Upload,       // 实现可跨项目使用文件上传的工具类
 						controller.Category,     // 商品分类管理
@@ -59,8 +59,11 @@ var (
 						controller.UserCoupon,   // 用户优惠券管理
 						controller.Goods,        // 商品管理
 						controller.GoodsOptions, // 商品规模管理
-						controller.Article,      // 文章管理&CMS
 						controller.Address,      // 地址管理
+						//这么写是为了避免前后端重复注册相同的路由和方法
+						controller.Order.List,   //订单列表
+						controller.Order.Detail, //订单详情
+						controller.Article,      // 文章管理&CMS
 					)
 				})
 			})

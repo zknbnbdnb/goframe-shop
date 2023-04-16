@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"github.com/gogf/gf/v2/util/gconv"
+	"goframe-shop/api/backend"
 	"goframe-shop/api/frontend"
 	"goframe-shop/internal/model"
 	"goframe-shop/internal/service"
@@ -29,4 +30,39 @@ func (c *cOrder) Add(ctx context.Context, req *frontend.OrderAddReq) (res *front
 	return &frontend.OrderAddRes{
 		Id: addRes.Id,
 	}, nil
+}
+
+func (c *cOrder) List(ctx context.Context, req *backend.OrderListReq) (res *backend.OrderListRes, err error) {
+	orderListInput := model.OrderListInput{}
+	err = gconv.Struct(req, &orderListInput)
+	if err != nil {
+		return res, err
+	}
+	list, err := service.Order().List(ctx, orderListInput)
+	if err != nil {
+		return nil, err
+	}
+	return &backend.OrderListRes{
+		CommonPaginationRes: backend.CommonPaginationRes{
+			List:  list.List,
+			Total: list.Total,
+			Page:  list.Page,
+			Size:  list.Size,
+		},
+	}, err
+}
+
+func (c *cOrder) Detail(ctx context.Context, req *backend.OrderDetailReq) (res *backend.OrderDetailRes, err error) {
+	detail, err := service.Order().Detail(ctx, model.OrderDetailInput{
+		Id: req.Id,
+	})
+	if err != nil {
+		return res, err
+	}
+	res = &backend.OrderDetailRes{}
+	err = gconv.Struct(detail, res)
+	if err != nil {
+		return res, err
+	}
+	return res, err
 }

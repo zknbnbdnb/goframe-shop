@@ -3,11 +3,12 @@ package backend
 import "github.com/gogf/gf/v2/frame/g"
 
 type GoodsOptionsAddUpdateBase struct {
-	GoodsId uint   `json:"goods_id" v:"required#商品id不能为空" dc:"商品id"`
-	PicUrl  string `json:"pic_url" v:"required#图片地址不能为空" dc:"图片地址"`
-	Name    string `json:"name" v:"required#名称不能为空" dc:"名称"`
-	Price   int    `json:"price" v:"required#价格不能为空" dc:"价格"`
-	Stock   int    `json:"stock" v:"required#库存不能为空" dc:"库存"`
+	GoodsId uint   `json:"goods_id" description:"主商品id"`
+	PicUrl  string `json:"pic_url"  description:"图片"`
+	Name    string `json:"name"     description:"商品规格名称" v:"required#名称必传"`
+	Price   int    `json:"price"    description:"价格 单位分" v:"required#价格必传"`
+	Brand   string `json:"brand"    description:"品牌" v:"max-length:30#品牌名称最大30个字"`
+	Stock   int    `json:"stock"    description:"库存"`
 }
 
 // GoodsOptionsReq Create 创建
@@ -16,7 +17,7 @@ type GoodsOptionsReq struct {
 	GoodsOptionsAddUpdateBase
 }
 type GoodsOptionsRes struct {
-	GoodsOptionsId int `json:"coupon_id"`
+	Id uint `json:"id"`
 }
 
 // GoodsOptionsDeleteReq Delete 删除

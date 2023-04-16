@@ -37,11 +37,11 @@ type GoodsDeleteRes struct {
 // GoodsUpdateReq Update 更新
 type GoodsUpdateReq struct {
 	g.Meta `path:"/goods/update" method:"post" tags:"用户优惠券" summary:"修改用户优惠券接口"`
-	Id     uint8 `json:"id"         v:"min:1#请选择需要修改的用户优惠券" dc:"用户优惠券Id"`
+	Id     uint `json:"id"         v:"min:1#请选择需要修改的用户优惠券" dc:"用户优惠券Id"`
 	GoodsAddUpdateBase
 }
 type GoodsUpdateRes struct {
-	Id uint8 `json:"id"`
+	Id uint `json:"id"`
 }
 
 // GoodsGetListCommonReq GetListCommon 获取列表

@@ -23,7 +23,7 @@ func (c *cGoodsOptions) Create(ctx context.Context, req *backend.GoodsOptionsReq
 	if err != nil {
 		return nil, err
 	}
-	return &backend.GoodsOptionsRes{GoodsOptionsId: out.GoodsOptionsId}, nil
+	return &backend.GoodsOptionsRes{Id: out.Id}, nil
 }
 
 func (c *cGoodsOptions) Delete(ctx context.Context, req *backend.GoodsOptionsDeleteReq) (res *backend.GoodsOptionsDeleteRes, err error) {

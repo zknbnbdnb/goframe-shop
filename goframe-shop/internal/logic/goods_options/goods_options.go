@@ -24,7 +24,7 @@ func (s *sGoodsOptions) Create(ctx context.Context, in model.GoodsOptionsCreateI
 	if err != nil {
 		return out, err
 	}
-	return model.GoodsOptionsCreateOutput{GoodsOptionsId: int(lastInsertID)}, err
+	return model.GoodsOptionsCreateOutput{Id: uint(lastInsertID)}, err
 }
 
 // Delete 删除
