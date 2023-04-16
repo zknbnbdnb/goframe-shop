@@ -17,7 +17,7 @@ type ArticleReq struct {
 	ArticleAddUpdateBase
 }
 type ArticleRes struct {
-	ArticleId int `json:"coupon_id"`
+	Id uint `json:"id"`
 }
 
 // ArticleDeleteReq Delete 删除
@@ -36,7 +36,7 @@ type ArticleUpdateReq struct {
 	ArticleAddUpdateBase
 }
 type ArticleUpdateRes struct {
-	Id uint8 `json:"id"`
+	Id uint `json:"id"`
 }
 
 // ArticleGetListCommonReq GetListCommon 获取列表

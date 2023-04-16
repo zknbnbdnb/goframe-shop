@@ -23,7 +23,7 @@ type RoleUpdateRes struct {
 	Id uint `json:"id" dc:"角色ID"`
 }
 
-// Delete 删除
+// RoleDeleteReq Delete 删除
 type RoleDeleteReq struct {
 	g.Meta `path:"/role/delete" method:"delete" tags:"角色" summary:"删除角色接口"`
 	Id     uint `v:"min:1#请选择需要删除的角色" dc:"角色id"`
@@ -32,11 +32,9 @@ type RoleDeleteRes struct{}
 
 type RoleGetListCommonReq struct {
 	g.Meta              `path:"/role/list" method:"get" tags:"角色" summary:"角色列表接口"`
-	Sort                int `json:"sort"   in:"query" dc:"排序类型"`
-	CommonPaginationReq     // 翻页配置
+	CommonPaginationReq // 翻页配置
 }
 type RoleGetListCommonRes struct {
-	// todo 以为要做前后端分离，使用不返回html
 	List  interface{} `json:"list" description:"列表"`
 	Page  int         `json:"page" description:"分页码"`
 	Size  int         `json:"size" description:"分页数量"`

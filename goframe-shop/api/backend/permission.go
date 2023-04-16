@@ -26,7 +26,7 @@ type PermissionUpdateRes struct {
 	Id uint `json:"id" dc:"权限ID"`
 }
 
-// Delete 删除
+// PermissionDeleteReq Delete 删除
 type PermissionDeleteReq struct {
 	g.Meta `path:"/permission/delete" method:"delete" tags:"权限" summary:"删除权限接口"`
 	Id     uint `v:"min:1#请选择需要删除的权限" dc:"权限id"`

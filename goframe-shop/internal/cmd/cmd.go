@@ -7,6 +7,8 @@ import (
 	"github.com/gogf/gf/v2/os/gcmd"
 	"goframe-shop/internal/consts"
 	"goframe-shop/internal/controller"
+	"goframe-shop/internal/controller/backend"
+	"goframe-shop/internal/controller/frontend"
 	"goframe-shop/internal/service"
 )
 
@@ -63,7 +65,7 @@ var (
 						//这么写是为了避免前后端重复注册相同的路由和方法
 						controller.Order.List,   //订单列表
 						controller.Order.Detail, //订单详情
-						controller.Article,      // 文章管理&CMS
+						backend.Article,         // 文章管理&CMS
 					)
 				})
 			})
@@ -97,6 +99,7 @@ var (
 						controller.Praise,              // 点赞管理
 						controller.Comment,             // 评论管理
 						controller.Order.Add,           // 添加订单
+						frontend.Article,               //文章
 					)
 				})
 

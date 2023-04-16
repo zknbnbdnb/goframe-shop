@@ -9,5 +9,8 @@ type CommonPaginationReq struct {
 }
 
 type CommonPaginationRes struct {
-	Total int `dc:"总数"`
+	List  interface{} `dc:"列表数据"`
+	Total int         `dc:"总数"`
+	Page  int         `dc:"分页号码"`
+	Size  int         `dc:"分页数量"`
 }
